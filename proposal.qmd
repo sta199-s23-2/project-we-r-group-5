@@ -45,6 +45,7 @@ library(tidyverse)
 billionaires <- read_csv("data/billionaires.csv")
 
 head(billionaires)
+glimpse(billionaires)
 
 
 ```
