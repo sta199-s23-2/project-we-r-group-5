@@ -79,7 +79,9 @@ variable <- read_csv("data/file-name.csv")
 #| label: load-data-2
 
 
-police_shootings <- read_csv("police_shootings.csv")
+police_shootings <- read_csv("data/police_shootings.csv")
+
+head(police_shootings)
 
 
 ```
