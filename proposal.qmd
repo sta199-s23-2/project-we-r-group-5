@@ -117,5 +117,7 @@ head(police_shootings)
 ```{r}
 #| label: load-data-3
 
-# add code here
+drugs <- read_csv("data/drugs.csv")
+
+head(drugs)
 ```
