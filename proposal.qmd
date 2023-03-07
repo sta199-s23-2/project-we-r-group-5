@@ -78,7 +78,10 @@ variable <- read_csv("data/file-name.csv")
 ```{r}
 #| label: load-data-2
 
-# add code here
+
+police_shootings <- read_csv("police_shootings.csv")
+
+
 ```
 
 # Data 3
