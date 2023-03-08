@@ -18,91 +18,91 @@
     "href": "proposal.html",
     "title": "Project title",
     "section": "",
-    "text": "library(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.2.2\n\n\nWarning: package 'tidyr' was built under R version 4.2.2\n\n\nWarning: package 'readr' was built under R version 4.2.2\n\n\nWarning: package 'purrr' was built under R version 4.2.2"
+    "text": "library(tidyverse)"
   },
   {
     "objectID": "proposal.html#introduction-and-data",
     "href": "proposal.html#introduction-and-data",
     "title": "Project title",
     "section": "Introduction and data",
-    "text": "Introduction and data\n\nIdentify the source of the data.\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nWrite a brief description of the observations."
+    "text": "Introduction and data\n\nIdentify the source of the data.\n\n\n\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\n\n\n\nWrite a brief description of the observations."
   },
   {
     "objectID": "proposal.html#research-question",
     "href": "proposal.html#research-question",
     "title": "Project title",
     "section": "Research question",
-    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nIdentify the types of variables in your research question. Categorical? Quantitative?"
+    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\n\n\n\nA description of the research topic along with a concise statement of your hypotheses on this topic.\n\n\n\nIdentify the types of variables in your research question. Categorical? Quantitative?"
   },
   {
     "objectID": "proposal.html#literature",
     "href": "proposal.html#literature",
     "title": "Project title",
     "section": "Literature",
-    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\nProvide a one paragraph summary about the article.\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
+    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\n\n\n\nProvide a one paragraph summary about the article.\n\n\n\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
   },
   {
     "objectID": "proposal.html#glimpse-of-data",
     "href": "proposal.html#glimpse-of-data",
     "title": "Project title",
     "section": "Glimpse of data",
-    "text": "Glimpse of data\n\n# add code here"
+    "text": "Glimpse of data\n\nbillionaires <- read_csv(\"data/billionaires.csv\")\n\nRows: 2614 Columns: 22\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (13): name, company.name, company.relationship, company.sector, company....\ndbl  (6): rank, year, company.founded, demographics.age, location.gdp, wealt...\nlgl  (3): wealth.how.from emerging, wealth.how.was founder, wealth.how.was p...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nhead(billionaires)\n\n# A tibble: 6 × 22\n  name        rank  year compa…¹ compa…² compa…³ compa…⁴ compa…⁵ demog…⁶ demog…⁷\n  <chr>      <dbl> <dbl>   <dbl> <chr>   <chr>   <chr>   <chr>     <dbl> <chr>  \n1 Bill Gates     1  1996    1975 Micros… founder Softwa… new          40 male   \n2 Bill Gates     1  2001    1975 Micros… founder Softwa… new          45 male   \n3 Bill Gates     1  2014    1975 Micros… founder Softwa… new          58 male   \n4 Warren Bu…     2  1996    1962 Berksh… founder Finance new          65 male   \n5 Warren Bu…     2  2001    1962 Berksh… founder Finance new          70 male   \n6 Carlos Sl…     2  2014    1990 Telmex  founder Commun… privat…      74 male   \n# … with 12 more variables: location.citizenship <chr>,\n#   `location.country code` <chr>, location.gdp <dbl>, location.region <chr>,\n#   wealth.type <chr>, `wealth.worth in billions` <dbl>,\n#   wealth.how.category <chr>, `wealth.how.from emerging` <lgl>,\n#   wealth.how.industry <chr>, wealth.how.inherited <chr>,\n#   `wealth.how.was founder` <lgl>, `wealth.how.was political` <lgl>, and\n#   abbreviated variable names ¹​company.founded, ²​company.name, …\n\nglimpse(billionaires)\n\nRows: 2,614\nColumns: 22\n$ name                       <chr> \"Bill Gates\", \"Bill Gates\", \"Bill Gates\", \"…\n$ rank                       <dbl> 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5…\n$ year                       <dbl> 1996, 2001, 2014, 1996, 2001, 2014, 1996, 2…\n$ company.founded            <dbl> 1975, 1975, 1975, 1962, 1962, 1990, 1896, 1…\n$ company.name               <chr> \"Microsoft\", \"Microsoft\", \"Microsoft\", \"Ber…\n$ company.relationship       <chr> \"founder\", \"founder\", \"founder\", \"founder\",…\n$ company.sector             <chr> \"Software\", \"Software\", \"Software\", \"Financ…\n$ company.type               <chr> \"new\", \"new\", \"new\", \"new\", \"new\", \"privati…\n$ demographics.age           <dbl> 40, 45, 58, 65, 70, 74, 0, 48, 77, 68, 56, …\n$ demographics.gender        <chr> \"male\", \"male\", \"male\", \"male\", \"male\", \"ma…\n$ location.citizenship       <chr> \"United States\", \"United States\", \"United S…\n$ `location.country code`    <chr> \"USA\", \"USA\", \"USA\", \"USA\", \"USA\", \"MEX\", \"…\n$ location.gdp               <dbl> 8.10e+12, 1.06e+13, 0.00e+00, 8.10e+12, 1.0…\n$ location.region            <chr> \"North America\", \"North America\", \"North Am…\n$ wealth.type                <chr> \"founder non-finance\", \"founder non-finance…\n$ `wealth.worth in billions` <dbl> 18.5, 58.7, 76.0, 15.0, 32.3, 72.0, 13.1, 3…\n$ wealth.how.category        <chr> \"New Sectors\", \"New Sectors\", \"New Sectors\"…\n$ `wealth.how.from emerging` <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…\n$ wealth.how.industry        <chr> \"Technology-Computer\", \"Technology-Computer…\n$ wealth.how.inherited       <chr> \"not inherited\", \"not inherited\", \"not inhe…\n$ `wealth.how.was founder`   <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…\n$ `wealth.how.was political` <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…"
   },
   {
     "objectID": "proposal.html#introduction-and-data-1",
     "href": "proposal.html#introduction-and-data-1",
     "title": "Project title",
     "section": "Introduction and data",
-    "text": "Introduction and data\n\nIdentify the source of the data.\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nWrite a brief description of the observations."
+    "text": "Introduction and data\n\nIdentify the source of the data.\n\nThe data is from Washington Post.\n\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\n\nIt was originally collected in 2015, when the Washington Post was trying to compile a database of every fatal shooting in the United States by a police officer in the line of duty since Jan.1 2015.\nIt was collected by culling local news reports, law enforcement websites and social media, and by monitoring independent database such as Killed by Police and Fatal Encounters.\n\nWrite a brief description of the observations.\n\nThe data contains basic victim information such as name, age gender, race, and whether the victim is armed or not. It also contains information about the shooting case such as the date, location city, location state. Plus more information about the police officer like body camera status, armed or not."
   },
   {
     "objectID": "proposal.html#research-question-1",
     "href": "proposal.html#research-question-1",
     "title": "Project title",
     "section": "Research question",
-    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nIdentify the types of variables in your research question. Categorical? Quantitative?"
+    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\n\n\n\nA description of the research topic along with a concise statement of your hypotheses on this topic.\n\n\n\nIdentify the types of variables in your research question. Categorical? Quantitative?"
   },
   {
     "objectID": "proposal.html#literature-1",
     "href": "proposal.html#literature-1",
     "title": "Project title",
     "section": "Literature",
-    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\nProvide a one paragraph summary about the article.\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
+    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\n\n\n\nProvide a one paragraph summary about the article.\n\n\n\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
   },
   {
     "objectID": "proposal.html#glimpse-of-data-1",
     "href": "proposal.html#glimpse-of-data-1",
     "title": "Project title",
     "section": "Glimpse of data",
-    "text": "Glimpse of data\n\n# add code here"
+    "text": "Glimpse of data\n\npolice_shootings <- read_csv(\"data/police_shootings.csv\")\n\nRows: 6569 Columns: 16\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (9): Person.Name, Person.Gender, Person.Race, Incident.Location.City, I...\ndbl  (4): Person.Age, Incident.Date.Month, Incident.Date.Day, Incident.Date....\nlgl  (2): Factors.Mental-Illness, Shooting.Body-Camera\ndate (1): Incident.Date.Full\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nhead(police_shootings)\n\n# A tibble: 6 × 16\n  Person.Name Perso…¹ Perso…² Perso…³ Incid…⁴ Incid…⁵ Incid…⁶ Incident…⁷ Incid…⁸\n  <chr>         <dbl> <chr>   <chr>     <dbl>   <dbl>   <dbl> <date>     <chr>  \n1 Tim Elliot       53 Male    Asian         1       2    2015 2015-01-02 Shelton\n2 Lewis Lee …      47 Male    White         1       2    2015 2015-01-02 Aloha  \n3 John Paul …      23 Male    Hispan…       1       3    2015 2015-01-03 Wichita\n4 Matthew Ho…      32 Male    White         1       4    2015 2015-01-04 San Fr…\n5 Michael Ro…      39 Male    Hispan…       1       4    2015 2015-01-04 Evans  \n6 Kenneth Jo…      18 Male    White         1       4    2015 2015-01-04 Guthrie\n# … with 7 more variables: Incident.Location.State <chr>, Factors.Armed <chr>,\n#   `Factors.Mental-Illness` <lgl>, `Factors.Threat-Level` <chr>,\n#   Factors.Fleeing <chr>, Shooting.Manner <chr>, `Shooting.Body-Camera` <lgl>,\n#   and abbreviated variable names ¹​Person.Age, ²​Person.Gender, ³​Person.Race,\n#   ⁴​Incident.Date.Month, ⁵​Incident.Date.Day, ⁶​Incident.Date.Year,\n#   ⁷​Incident.Date.Full, ⁸​Incident.Location.City"
   },
   {
     "objectID": "proposal.html#introduction-and-data-2",
     "href": "proposal.html#introduction-and-data-2",
     "title": "Project title",
     "section": "Introduction and data",
-    "text": "Introduction and data\n\nIdentify the source of the data.\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\nWrite a brief description of the observations."
+    "text": "Introduction and data\n\nIdentify the source of the data.\n\n\n\nState when and how it was originally collected (by the original data curator, not necessarily how you found the data).\n\n\n\nWrite a brief description of the observations."
   },
   {
     "objectID": "proposal.html#research-question-2",
     "href": "proposal.html#research-question-2",
     "title": "Project title",
     "section": "Research question",
-    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\nA description of the research topic along with a concise statement of your hypotheses on this topic.\nIdentify the types of variables in your research question. Categorical? Quantitative?"
+    "text": "Research question\n\nA well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)\n\n\n\nA description of the research topic along with a concise statement of your hypotheses on this topic.\n\n\n\nIdentify the types of variables in your research question. Categorical? Quantitative?"
   },
   {
     "objectID": "proposal.html#literature-2",
     "href": "proposal.html#literature-2",
     "title": "Project title",
     "section": "Literature",
-    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\nProvide a one paragraph summary about the article.\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
+    "text": "Literature\n\nFind one published credible article on the topic you are interested in researching.\n\n\n\nProvide a one paragraph summary about the article.\n\n\n\nIn 1-2 sentences, explain how your research question builds on / is different than the article you have cited."
   },
   {
     "objectID": "proposal.html#glimpse-of-data-2",
     "href": "proposal.html#glimpse-of-data-2",
     "title": "Project title",
     "section": "Glimpse of data",
-    "text": "Glimpse of data\n\n# add code here"
+    "text": "Glimpse of data\n\ndrugs <- read_csv(\"data/drugs.csv\")\n\nRows: 867 Columns: 53\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (1): State\ndbl (52): Year, Population.12-17, Population.18-25, Population.26+, Totals.A...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nhead(drugs)\n\n# A tibble: 6 × 53\n  State     Year Popul…¹ Popul…² Popul…³ Total…⁴ Total…⁵ Total…⁶ Rates…⁷ Rates…⁸\n  <chr>    <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>\n1 Alabama   2002  380805  499453  2.81e6      18      68     138  0.0483   0.136\n2 Alaska    2002   69400   62791  3.68e5       4      12      27  0.0615   0.188\n3 Arizona   2002  485521  602265  3.33e6      36     117     258  0.0738   0.194\n4 Arkansas  2002  232986  302029  1.69e6      14      53     101  0.0615   0.176\n5 Califor…  2002 3140739 3919577  2.14e7     173     581    1298  0.0551   0.148\n6 Colorado  2002  385648  493921  2.80e6      26     102     211  0.0671   0.207\n# … with 43 more variables: `Rates.Alcohol.Use Disorder Past Year.26+` <dbl>,\n#   `Totals.Alcohol.Use Past Month.12-17` <dbl>,\n#   `Totals.Alcohol.Use Past Month.18-25` <dbl>,\n#   `Totals.Alcohol.Use Past Month.26+` <dbl>,\n#   `Rates.Alcohol.Use Past Month.12-17` <dbl>,\n#   `Rates.Alcohol.Use Past Month.18-25` <dbl>,\n#   `Rates.Alcohol.Use Past Month.26+` <dbl>, …"
   },
   {
     "objectID": "report.html",

@@ -18,25 +18,43 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
+    -   
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   
+
 -   Write a brief description of the observations.
+
+    -   
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   
+
 -   Provide a one paragraph summary about the article.
 
+    -   
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   
 
 ## Glimpse of data
 
@@ -56,25 +74,45 @@ glimpse(billionaires)
 
 -   Identify the source of the data.
 
+    -   The data is from Washington Post.
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   It was originally collected in 2015, when the Washington Post was trying to compile a database of every fatal shooting in the United States by a police officer in the line of duty since Jan.1 2015.
+
+    -   It was collected by culling local news reports, law enforcement websites and social media, and by monitoring independent database such as Killed by Police and Fatal Encounters.
+
 -   Write a brief description of the observations.
+
+    -   The data contains basic victim information such as name, age gender, race, and whether the victim is armed or not. It also contains information about the shooting case such as the date, location city, location state. Plus more information about the police officer like body camera status, armed or not.
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   
+
 -   Provide a one paragraph summary about the article.
 
+    -   
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   
 
 ## Glimpse of data
 
@@ -95,25 +133,43 @@ head(police_shootings)
 
 -   Identify the source of the data.
 
+    -   
+
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
+    -   
+
 -   Write a brief description of the observations.
+
+    -   
 
 ## Research question
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
+    -   
+
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
+    -   
+
 -   Identify the types of variables in your research question. Categorical? Quantitative?
+
+    -   
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
+    -   
+
 -   Provide a one paragraph summary about the article.
 
+    -   
+
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
+
+    -   
 
 ## Glimpse of data
 

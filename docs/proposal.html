@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -53,7 +58,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -66,7 +71,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -132,19 +137,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">TEAM NAME</a>
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">TEAM NAME</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./proposal.html" aria-current="page">Proposal</a>
+    <a class="nav-link active" href="./proposal.html" aria-current="page">
+ <span class="menu-text">Proposal</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.pdf">Presentation</a>
+    <a class="nav-link" href="./presentation.pdf">
+ <span class="menu-text">Presentation</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./report.html">Report</a>
+    <a class="nav-link" href="./report.html">
+ <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -157,7 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -199,6 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -207,49 +218,121 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.2.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.2.2</code></pre>
-</div>
 </div>
 <section id="data-1" class="level1">
 <h1>Data 1</h1>
 <section id="introduction-and-data" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Write a brief description of the observations.</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="research-question" class="level2">
 <h2 class="anchored" data-anchor-id="research-question">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="literature" class="level2">
 <h2 class="anchored" data-anchor-id="literature">Literature</h2>
 <ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
+<li><p>Find one published credible article on the topic you are interested in researching.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Provide a one paragraph summary about the article.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="glimpse-of-data" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>billionaires <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/billionaires.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2614 Columns: 22
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (13): name, company.name, company.relationship, company.sector, company....
+dbl  (6): rank, year, company.founded, demographics.age, location.gdp, wealt...
+lgl  (3): wealth.how.from emerging, wealth.how.was founder, wealth.how.was p...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(billionaires)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 22
+  name        rank  year compa…¹ compa…² compa…³ compa…⁴ compa…⁵ demog…⁶ demog…⁷
+  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
+1 Bill Gates     1  1996    1975 Micros… founder Softwa… new          40 male   
+2 Bill Gates     1  2001    1975 Micros… founder Softwa… new          45 male   
+3 Bill Gates     1  2014    1975 Micros… founder Softwa… new          58 male   
+4 Warren Bu…     2  1996    1962 Berksh… founder Finance new          65 male   
+5 Warren Bu…     2  2001    1962 Berksh… founder Finance new          70 male   
+6 Carlos Sl…     2  2014    1990 Telmex  founder Commun… privat…      74 male   
+# … with 12 more variables: location.citizenship &lt;chr&gt;,
+#   `location.country code` &lt;chr&gt;, location.gdp &lt;dbl&gt;, location.region &lt;chr&gt;,
+#   wealth.type &lt;chr&gt;, `wealth.worth in billions` &lt;dbl&gt;,
+#   wealth.how.category &lt;chr&gt;, `wealth.how.from emerging` &lt;lgl&gt;,
+#   wealth.how.industry &lt;chr&gt;, wealth.how.inherited &lt;chr&gt;,
+#   `wealth.how.was founder` &lt;lgl&gt;, `wealth.how.was political` &lt;lgl&gt;, and
+#   abbreviated variable names ¹​company.founded, ²​company.name, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(billionaires)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,614
+Columns: 22
+$ name                       &lt;chr&gt; "Bill Gates", "Bill Gates", "Bill Gates", "…
+$ rank                       &lt;dbl&gt; 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5…
+$ year                       &lt;dbl&gt; 1996, 2001, 2014, 1996, 2001, 2014, 1996, 2…
+$ company.founded            &lt;dbl&gt; 1975, 1975, 1975, 1962, 1962, 1990, 1896, 1…
+$ company.name               &lt;chr&gt; "Microsoft", "Microsoft", "Microsoft", "Ber…
+$ company.relationship       &lt;chr&gt; "founder", "founder", "founder", "founder",…
+$ company.sector             &lt;chr&gt; "Software", "Software", "Software", "Financ…
+$ company.type               &lt;chr&gt; "new", "new", "new", "new", "new", "privati…
+$ demographics.age           &lt;dbl&gt; 40, 45, 58, 65, 70, 74, 0, 48, 77, 68, 56, …
+$ demographics.gender        &lt;chr&gt; "male", "male", "male", "male", "male", "ma…
+$ location.citizenship       &lt;chr&gt; "United States", "United States", "United S…
+$ `location.country code`    &lt;chr&gt; "USA", "USA", "USA", "USA", "USA", "MEX", "…
+$ location.gdp               &lt;dbl&gt; 8.10e+12, 1.06e+13, 0.00e+00, 8.10e+12, 1.0…
+$ location.region            &lt;chr&gt; "North America", "North America", "North Am…
+$ wealth.type                &lt;chr&gt; "founder non-finance", "founder non-finance…
+$ `wealth.worth in billions` &lt;dbl&gt; 18.5, 58.7, 76.0, 15.0, 32.3, 72.0, 13.1, 3…
+$ wealth.how.category        &lt;chr&gt; "New Sectors", "New Sectors", "New Sectors"…
+$ `wealth.how.from emerging` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
+$ wealth.how.industry        &lt;chr&gt; "Technology-Computer", "Technology-Computer…
+$ wealth.how.inherited       &lt;chr&gt; "not inherited", "not inherited", "not inhe…
+$ `wealth.how.was founder`   &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
+$ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -258,31 +341,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction-and-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-1">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<ul>
+<li>The data is from Washington Post.</li>
+</ul></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<ul>
+<li><p>It was originally collected in 2015, when the Washington Post was trying to compile a database of every fatal shooting in the United States by a police officer in the line of duty since Jan.1 2015.</p></li>
+<li><p>It was collected by culling local news reports, law enforcement websites and social media, and by monitoring independent database such as Killed by Police and Fatal Encounters.</p></li>
+</ul></li>
+<li><p>Write a brief description of the observations.</p>
+<ul>
+<li>The data contains basic victim information such as name, age gender, race, and whether the victim is armed or not. It also contains information about the shooting case such as the date, location city, location state. Plus more information about the police officer like body camera status, armed or not.</li>
+</ul></li>
 </ul>
 </section>
 <section id="research-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-1">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="literature-1" class="level2">
 <h2 class="anchored" data-anchor-id="literature-1">Literature</h2>
 <ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
+<li><p>Find one published credible article on the topic you are interested in researching.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Provide a one paragraph summary about the article.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="glimpse-of-data-1" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>police_shootings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/police_shootings.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 6569 Columns: 16
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (9): Person.Name, Person.Gender, Person.Race, Incident.Location.City, I...
+dbl  (4): Person.Age, Incident.Date.Month, Incident.Date.Day, Incident.Date....
+lgl  (2): Factors.Mental-Illness, Shooting.Body-Camera
+date (1): Incident.Date.Full
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(police_shootings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 16
+  Person.Name Perso…¹ Perso…² Perso…³ Incid…⁴ Incid…⁵ Incid…⁶ Incident…⁷ Incid…⁸
+  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;  
+1 Tim Elliot       53 Male    Asian         1       2    2015 2015-01-02 Shelton
+2 Lewis Lee …      47 Male    White         1       2    2015 2015-01-02 Aloha  
+3 John Paul …      23 Male    Hispan…       1       3    2015 2015-01-03 Wichita
+4 Matthew Ho…      32 Male    White         1       4    2015 2015-01-04 San Fr…
+5 Michael Ro…      39 Male    Hispan…       1       4    2015 2015-01-04 Evans  
+6 Kenneth Jo…      18 Male    White         1       4    2015 2015-01-04 Guthrie
+# … with 7 more variables: Incident.Location.State &lt;chr&gt;, Factors.Armed &lt;chr&gt;,
+#   `Factors.Mental-Illness` &lt;lgl&gt;, `Factors.Threat-Level` &lt;chr&gt;,
+#   Factors.Fleeing &lt;chr&gt;, Shooting.Manner &lt;chr&gt;, `Shooting.Body-Camera` &lt;lgl&gt;,
+#   and abbreviated variable names ¹​Person.Age, ²​Person.Gender, ³​Person.Race,
+#   ⁴​Incident.Date.Month, ⁵​Incident.Date.Day, ⁶​Incident.Date.Year,
+#   ⁷​Incident.Date.Full, ⁸​Incident.Location.City</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -291,31 +432,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction-and-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-data-2">Introduction and data</h2>
 <ul>
-<li><p>Identify the source of the data.</p></li>
-<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p></li>
-<li><p>Write a brief description of the observations.</p></li>
+<li><p>Identify the source of the data.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Write a brief description of the observations.</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="research-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-2">Research question</h2>
 <ul>
-<li>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</li>
-<li>A description of the research topic along with a concise statement of your hypotheses on this topic.</li>
-<li>Identify the types of variables in your research question. Categorical? Quantitative?</li>
+<li><p>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>A description of the research topic along with a concise statement of your hypotheses on this topic.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Identify the types of variables in your research question. Categorical? Quantitative?</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="literature-2" class="level2">
 <h2 class="anchored" data-anchor-id="literature-2">Literature</h2>
 <ul>
-<li><p>Find one published credible article on the topic you are interested in researching.</p></li>
-<li><p>Provide a one paragraph summary about the article.</p></li>
-<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p></li>
+<li><p>Find one published credible article on the topic you are interested in researching.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>Provide a one paragraph summary about the article.</p>
+<ul>
+<li></li>
+</ul></li>
+<li><p>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</p>
+<ul>
+<li></li>
+</ul></li>
 </ul>
 </section>
 <section id="glimpse-of-data-2" class="level2">
 <h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>drugs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/drugs.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 867 Columns: 53
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (1): State
+dbl (52): Year, Population.12-17, Population.18-25, Population.26+, Totals.A...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drugs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 53
+  State     Year Popul…¹ Popul…² Popul…³ Total…⁴ Total…⁵ Total…⁶ Rates…⁷ Rates…⁸
+  &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 Alabama   2002  380805  499453  2.81e6      18      68     138  0.0483   0.136
+2 Alaska    2002   69400   62791  3.68e5       4      12      27  0.0615   0.188
+3 Arizona   2002  485521  602265  3.33e6      36     117     258  0.0738   0.194
+4 Arkansas  2002  232986  302029  1.69e6      14      53     101  0.0615   0.176
+5 Califor…  2002 3140739 3919577  2.14e7     173     581    1298  0.0551   0.148
+6 Colorado  2002  385648  493921  2.80e6      26     102     211  0.0671   0.207
+# … with 43 more variables: `Rates.Alcohol.Use Disorder Past Year.26+` &lt;dbl&gt;,
+#   `Totals.Alcohol.Use Past Month.12-17` &lt;dbl&gt;,
+#   `Totals.Alcohol.Use Past Month.18-25` &lt;dbl&gt;,
+#   `Totals.Alcohol.Use Past Month.26+` &lt;dbl&gt;,
+#   `Rates.Alcohol.Use Past Month.12-17` &lt;dbl&gt;,
+#   `Rates.Alcohol.Use Past Month.18-25` &lt;dbl&gt;,
+#   `Rates.Alcohol.Use Past Month.26+` &lt;dbl&gt;, …</code></pre>
+</div>
 </div>
 
 
@@ -364,7 +561,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -392,31 +606,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
