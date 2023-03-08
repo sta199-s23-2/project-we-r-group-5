@@ -226,15 +226,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>Identify the source of the data.</p>
 <ul>
-<li></li>
+<li>This data is from the CORGIS Dataset Project.</li>
 </ul></li>
 <li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
 <ul>
-<li></li>
+<li><p>It was collected in 2016.</p></li>
+<li><p>It compiled 2015 Forbes World's Billionaires list shows a record number of billionaires in the world (1,826) while adding detailed information on the individuals listed.</p></li>
 </ul></li>
 <li><p>Write a brief description of the observations.</p>
 <ul>
-<li></li>
+<li>The observation includes the personal information of billionaire such as their name, gender, demographics, and citizenship. It also include their company information such as name, industry, inherited, and founder.</li>
 </ul></li>
 </ul>
 </section>
@@ -343,7 +344,7 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <ul>
 <li><p>Identify the source of the data.</p>
 <ul>
-<li>The data is from Washington Post.</li>
+<li>This data is from Washington Post.</li>
 </ul></li>
 <li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
 <ul>
@@ -398,10 +399,9 @@ $ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRU
 <pre><code>Rows: 6569 Columns: 16
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr  (9): Person.Name, Person.Gender, Person.Race, Incident.Location.City, I...
+chr (10): Person.Name, Person.Gender, Person.Race, Incident.Date.Full, Incid...
 dbl  (4): Person.Age, Incident.Date.Month, Incident.Date.Day, Incident.Date....
 lgl  (2): Factors.Mental-Illness, Shooting.Body-Camera
-date (1): Incident.Date.Full
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
@@ -409,14 +409,14 @@ date (1): Incident.Date.Full
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(police_shootings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 16
-  Person.Name Perso…¹ Perso…² Perso…³ Incid…⁴ Incid…⁵ Incid…⁶ Incident…⁷ Incid…⁸
-  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;  
-1 Tim Elliot       53 Male    Asian         1       2    2015 2015-01-02 Shelton
-2 Lewis Lee …      47 Male    White         1       2    2015 2015-01-02 Aloha  
-3 John Paul …      23 Male    Hispan…       1       3    2015 2015-01-03 Wichita
-4 Matthew Ho…      32 Male    White         1       4    2015 2015-01-04 San Fr…
-5 Michael Ro…      39 Male    Hispan…       1       4    2015 2015-01-04 Evans  
-6 Kenneth Jo…      18 Male    White         1       4    2015 2015-01-04 Guthrie
+  Person.Name    Perso…¹ Perso…² Perso…³ Incid…⁴ Incid…⁵ Incid…⁶ Incid…⁷ Incid…⁸
+  &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  
+1 Tim Elliot          53 Male    Asian         1       2    2015 1/2/15  Shelton
+2 Lewis Lee Lem…      47 Male    White         1       2    2015 1/2/15  Aloha  
+3 John Paul Qui…      23 Male    Hispan…       1       3    2015 1/3/15  Wichita
+4 Matthew Hoffm…      32 Male    White         1       4    2015 1/4/15  San Fr…
+5 Michael Rodri…      39 Male    Hispan…       1       4    2015 1/4/15  Evans  
+6 Kenneth Joe B…      18 Male    White         1       4    2015 1/4/15  Guthrie
 # … with 7 more variables: Incident.Location.State &lt;chr&gt;, Factors.Armed &lt;chr&gt;,
 #   `Factors.Mental-Illness` &lt;lgl&gt;, `Factors.Threat-Level` &lt;chr&gt;,
 #   Factors.Fleeing &lt;chr&gt;, Shooting.Manner &lt;chr&gt;, `Shooting.Body-Camera` &lt;lgl&gt;,
@@ -434,15 +434,16 @@ date (1): Incident.Date.Full
 <ul>
 <li><p>Identify the source of the data.</p>
 <ul>
-<li></li>
+<li>Data was collected from individual states as part of the NSDUH study.</li>
 </ul></li>
 <li><p>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</p>
 <ul>
-<li></li>
+<li><p>It was collected in 2021.</p></li>
+<li><p>This data collected from Substance Abuse and Mental Health Services Administration (SAMHSA)’s public online data analysis system (PDAS).</p></li>
 </ul></li>
 <li><p>Write a brief description of the observations.</p>
 <ul>
-<li></li>
+<li>This dataset is about substance abuse (cigarettes, marijuana, cocaine, alcohol) among different age groups and states. Data was collected from individual states as part of the NSDUH study. The data ranges from 2002 to 2018. Both totals (in thousands of people) and rates (as a percentage of the population) are given.</li>
 </ul></li>
 </ul>
 </section>

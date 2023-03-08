@@ -18,15 +18,17 @@ library(tidyverse)
 
 -   Identify the source of the data.
 
-    -   
+    -   This data is from the CORGIS Dataset Project.
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
-    -   
+    -   It was collected in 2016.
+
+    -   It compiled 2015 Forbes World\'s Billionaires list shows a record number of billionaires in the world (1,826) while adding detailed information on the individuals listed.
 
 -   Write a brief description of the observations.
 
-    -   
+    -   The observation includes the personal information of billionaire such as their name, gender, demographics, and citizenship. It also include their company information such as name, industry, inherited, and founder.
 
 ## Research question
 
@@ -74,7 +76,7 @@ glimpse(billionaires)
 
 -   Identify the source of the data.
 
-    -   The data is from Washington Post.
+    -   This data is from Washington Post.
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
@@ -133,15 +135,17 @@ head(police_shootings)
 
 -   Identify the source of the data.
 
-    -   
+    -   Data was collected from individual states as part of the NSDUH study.
 
 -   State when and how it was originally collected (by the original data curator, not necessarily how you found the data).
 
-    -   
+    -   It was collected in 2021.
+
+    -   This data collected from Substance Abuse and Mental Health Services Administration (SAMHSA)'s public online data analysis system (PDAS).
 
 -   Write a brief description of the observations.
 
-    -   
+    -   This dataset is about substance abuse (cigarettes, marijuana, cocaine, alcohol) among different age groups and states. Data was collected from individual states as part of the NSDUH study. The data ranges from 2002 to 2018. Both totals (in thousands of people) and rates (as a percentage of the population) are given.
 
 ## Research question
 
