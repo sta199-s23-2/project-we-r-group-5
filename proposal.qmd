@@ -92,29 +92,33 @@ glimpse(billionaires)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   
+    -   What is the relationship between fatal police shootings and race and gender in the United States?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   
+    -   This research will allow us to gain insight on the potential correlation between race, gender, and police shootings. We hope to discover if there are certain races or genders that have higher levels of police shootings, or if the shootings are equally dispersed. Overall, we predict that both race and gender in police shootings are correlated, and that there are specific races/genders that are more prone to police shootings
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    -   
+    -   Race (Person.Race) and gender (Person.Gender) are both categorical variables.
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
-    -   
+    -   **Racial inequity in fatal US police shootings, 2015--2020**
+
+    -   Lett, Elle, et al. "Racial inequity in fatal US police shootings, 2015--2020." *J Epidemiol Community Health* 75.4 (2021): 394-397.
+
+    -   https://www.chea.upenn.edu/wp-content/blogs.dir/70/files/sites/70/2020/10/Racial-Inequity-in-Fatal-US-Police-Shootings.pdf
 
 -   Provide a one paragraph summary about the article.
 
-    -   
+    -   This article details the racial inequality seen in US police shootings in the years 2015-2020. By examining fatal police shootings by race, the authors of the article were able to conclude that Black, Indigenous, and people of color face significantly more police shootings than those of other races, signifying a correlation between these two variables. The article labels police shootings, particularly those that are fatal, as a public health emergency, and calls for policy change to remedy this inequality.
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
-    -   
+    -   Our research questions is aimed at a similar concept to the article cited in terms of race. However, we plan to add an additional level of analysis by studying gender's role in this topic.
 
 ## Glimpse of data
 
