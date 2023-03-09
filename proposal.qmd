@@ -48,7 +48,9 @@ library(tidyverse)
 
 -   Find one published credible article on the topic you are interested in researching.
 
-    -   https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/?\_\_cf_chl_tk=Ukf90omcnnDfbwhqcd6GDNpECHPyadqZsZk1cgA10R4-1678392097-0-gaNycGzNCxA
+    -   **The Job Sectors Where Most Billionaires Make Their Money**
+
+    -   *The job sectors where most billionaires make their money - businesstech*. (n.d.). Retrieved March 9, 2023, from https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/
 
 -   Provide a one paragraph summary about the article.
 
