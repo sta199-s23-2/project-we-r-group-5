@@ -24,7 +24,7 @@ library(tidyverse)
 
     -   It was collected in 2016.
 
-    -   It compiled 2015 Forbes World\'s Billionaires list shows a record number of billionaires in the world (1,826) while adding detailed information on the individuals listed.
+    -   It compiled 2015 Forbes World's Billionaires list shows a record number of billionaires in the world (1,826) while adding detailed information on the individuals listed.
 
 -   Write a brief description of the observations.
 
@@ -151,29 +151,33 @@ head(police_shootings)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   
+    -   From 2002 to 2018, how does drug use by population between alcohol, cocaine, tobacco, and marijuana vary by year?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   
+    -   Our research topic is understanding the curve and decrease/increase of certain drug use on the population from years 2002 to 2018 by year. We will compare the differing numbers of drug uses by year from 2002-2018, understanding the general trend of the data. From 2002-2018, there is likely to be an increase of substance users.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    -   
+    -   Our data uses mostly quantitative variables to check the numbers of usage of the differing substances from 2002-2018.
 
-## Literature
+        ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
-    -   
+-   **Towards explaining time trends in adolescents\' alcohol use: a multilevel analysis of Swedish data from 1988 to 2011**
+
+    <https://doi.org/10.1093/eurpub/ckz023>
+
+    Junhwan Kim, Brittany E Evans, Curt Hagquist, Towards explaining time trends in adolescents\' alcohol use: a multilevel analysis of Swedish data from 1988 to 2011, *European Journal of Public Health*, Volume 29, Issue 4, August 2019, Pages 729--735
 
 -   Provide a one paragraph summary about the article.
 
-    -   
+    -   The authors use data from repeated cross-sectional surveys of Swedish high school students, analyzing the data using a multilevel approach to explore both individual-level and contextual-level predictors of alcohol use.The study found that the prevalence of alcohol use among Swedish adolescents decreased over time, and that this trend was particularly pronounced among girls. Individual-level factors such as gender, age, and parental education were found to be strongly associated with alcohol use, as were contextual-level factors such as school-level socioeconomic status and alcohol availability in the community.
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
-    -   
+    -   In our data, we also will be comparing the trend of alcohol/drug usage over time and possibly predicting the contextual reasons behind it. However, we will not be using data from the US, not Sweden, and we will be looking across all age groups.
 
 ## Glimpse of data
 
