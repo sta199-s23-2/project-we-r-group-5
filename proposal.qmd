@@ -34,25 +34,25 @@ library(tidyverse)
 
 -   A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)
 
-    -   
+    -   What is the relationship between wealth worth and industry among the billionaires in North America?
 
 -   A description of the research topic along with a concise statement of your hypotheses on this topic.
 
-    -   
+    -   This research question will help us understand how the industry a billionaire works in affects their net worth in North America. We will look at all the different industries and see how those different industries lead to different net worths. Ultimately the goal is to find a trend that can help us determine which industries are more successful than others. We predict that some industries such as technology-computer, consumer, and money management will have higher rates of producing billionaires than others.
 
 -   Identify the types of variables in your research question. Categorical? Quantitative?
 
-    -   
+    -   The variable of industry (wealth.how.industry) is categorical and the variable of net worth (wealth.worth) is quantitative.
 
 ## Literature
 
 -   Find one published credible article on the topic you are interested in researching.
 
-    -   
+    -   https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/?\_\_cf_chl_tk=Ukf90omcnnDfbwhqcd6GDNpECHPyadqZsZk1cgA10R4-1678392097-0-gaNycGzNCxA
 
 -   Provide a one paragraph summary about the article.
 
-    -   
+    -   The article presents findings from a study by UBS and PwC on the sectors where most billionaires made their money. The study analyzed the wealth of 2,000 billionaires worldwide and found that the top sectors where billionaires made their wealth are finance and investments, technology, manufacturing, real estate, and fashion and retail. Finance and investments had the most billionaires with 267, followed by technology with 221, manufacturing with 215, real estate with 163, and fashion and retail with 135. The study underscores the diversity of the sectors in which billionaires can generate wealth.
 
 -   In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.
 
@@ -165,11 +165,11 @@ head(police_shootings)
 
 -   Find one published credible article on the topic you are interested in researching.
 
--   **Towards explaining time trends in adolescents\' alcohol use: a multilevel analysis of Swedish data from 1988 to 2011**
+-   **Towards explaining time trends in adolescents' alcohol use: a multilevel analysis of Swedish data from 1988 to 2011**
 
     <https://doi.org/10.1093/eurpub/ckz023>
 
-    Junhwan Kim, Brittany E Evans, Curt Hagquist, Towards explaining time trends in adolescents\' alcohol use: a multilevel analysis of Swedish data from 1988 to 2011, *European Journal of Public Health*, Volume 29, Issue 4, August 2019, Pages 729--735
+    Junhwan Kim, Brittany E Evans, Curt Hagquist, Towards explaining time trends in adolescents' alcohol use: a multilevel analysis of Swedish data from 1988 to 2011, *European Journal of Public Health*, Volume 29, Issue 4, August 2019, Pages 729--735
 
 -   Provide a one paragraph summary about the article.
 
