@@ -11,6 +11,11 @@ execute:
 
 The introduction provides motivation and context for your research. Describe your topic (citing sources) and provide a concise, clear statement of your research question and hypotheses. Additionally, consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected.
 
+Topic: Our topics is exploring the dataset "Billionaires" which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we can create a question that helps us gather more insight on the wealth world. 
+
+Research Question and Hypothesis: In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?
+
+
 Then identify the source of the data, when and how it was collected, the cases, a general description of relevant variables.
 
 #### Methodology
@@ -22,3 +27,4 @@ The methodology section should include visualizations and summary statistics rel
 Showcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you\'re feeling adventurous).
 
 Provide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and perform every possible procedure for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in interpreting and presenting results, and that you can accomplish these tasks using R. More is not better.
+
