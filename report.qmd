@@ -17,7 +17,7 @@ Research Question and Hypothesis: In 2014, how did the relationship between weal
 
 Identify the source of the data, when and how it was collected, the cases, a general description of relevant variables:
 
--   The data was collected in 2016. It compiled 2015 Forbes World's Billionaires list shows a record number of billionaires in the world (1,826) while adding detailed information on the individuals listed. The relevant variable includes the wealth worth, industry and their continent.
+-   The data was collected in 1996, 2001, and 2014. We only focus on the data collected in 2014. It compiled Forbes World's Billionaires list shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variable includes the wealth worth, industry and their continent.
 
 #### Methodology
 
