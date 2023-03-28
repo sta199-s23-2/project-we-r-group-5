@@ -37,6 +37,10 @@ billionaires <- read_csv("data/billionaires.csv")
 head(billionaires)
 glimpse(billionaires)
 
+billionaires |>
+  filter(year == 2014) |>
+  select("wealth.worth in billions", wealth.how.industry, location.region)
+
 ```
 
 #### Results
