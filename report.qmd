@@ -23,6 +23,22 @@ Identify the source of the data, when and how it was collected, the cases, a gen
 
 The methodology section should include visualizations and summary statistics relevant to your research question. You should also justify the choice of statistical method(s) used to answer your research question.
 
+```{r}
+#| label: load-pkgs
+#| message: false
+
+library(tidyverse)
+```
+
+```{r}
+#| label: load-data-1
+billionaires <- read_csv("data/billionaires.csv")
+
+head(billionaires)
+glimpse(billionaires)
+
+```
+
 #### Results
 
 Showcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you're feeling adventurous).
