@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -137,19 +137,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">TEAM NAME</a>
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">TEAM NAME</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./proposal.html">Proposal</a>
+    <a class="nav-link" href="./proposal.html">
+ <span class="menu-text">Proposal</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.pdf">Presentation</a>
+    <a class="nav-link" href="./presentation.pdf">
+ <span class="menu-text">Presentation</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./report.html" aria-current="page">Report</a>
+    <a class="nav-link active" href="./report.html" aria-current="page">
+ <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -178,6 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -187,12 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction-and-data" class="level4">
 <h4 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h4>
 <p>The introduction provides motivation and context for your research. Describe your topic (citing sources) and provide a concise, clear statement of your research question and hypotheses. Additionally, consider any potential ethical issues that you believe should be addressed (if any) regarding how your data were collected.</p>
-<p>Topic: Our topics is exploring the dataset “Billionaires” which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we can create a question that helps us gather more insight on the wealth world.</p>
-<p>Research Question and Hypothesis: In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?</p>
+<p>Topic: Our topic is exploring the dataset “Billionaires” which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we can create a question that helps us gather more insight on the wealth world.</p>
+<p><strong>Research Question and Hypothesis: In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?</strong></p>
 <p>Identify the source of the data, when and how it was collected, the cases, a general description of relevant variables:</p>
-<ul>
-<li>The data was collected in 2016. It compiled 2015 Forbes World’s Billionaires list shows a record number of billionaires in the world (1,826) while adding detailed information on the individuals listed. The relevant variable includes the wealth worth, industry and their continent.</li>
-</ul>
+<p>The data was collected in 1996, 2001, and 2014. We are only focusing on the data collected in 2014. It compiled Forbes World’s Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the wealth worth, industry, and their continent.</p>
 </section>
 <section id="methodology" class="level4">
 <h4 class="anchored" data-anchor-id="methodology">Methodology</h4>
@@ -200,6 +204,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>billionaires|&gt;</p>
+<p>filter(location.citizenship == “Mexico” &amp; location.region == “Latin America” &amp; year == 2014) |&gt;</p>
+<p>select(name, year, location.citizenship, location.region) |&gt;</p>
+<p>count(year)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>billionaires <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/billionaires.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -213,51 +221,58 @@ lgl  (3): wealth.how.from emerging, wealth.how.was founder, wealth.how.was p...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(billionaires)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 22
-  name        rank  year compa…¹ compa…² compa…³ compa…⁴ compa…⁵ demog…⁶ demog…⁷
-  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
-1 Bill Gates     1  1996    1975 Micros… founder Softwa… new          40 male   
-2 Bill Gates     1  2001    1975 Micros… founder Softwa… new          45 male   
-3 Bill Gates     1  2014    1975 Micros… founder Softwa… new          58 male   
-4 Warren Bu…     2  1996    1962 Berksh… founder Finance new          65 male   
-5 Warren Bu…     2  2001    1962 Berksh… founder Finance new          70 male   
-6 Carlos Sl…     2  2014    1990 Telmex  founder Commun… privat…      74 male   
-# … with 12 more variables: location.citizenship &lt;chr&gt;,
-#   `location.country code` &lt;chr&gt;, location.gdp &lt;dbl&gt;, location.region &lt;chr&gt;,
-#   wealth.type &lt;chr&gt;, `wealth.worth in billions` &lt;dbl&gt;,
-#   wealth.how.category &lt;chr&gt;, `wealth.how.from emerging` &lt;lgl&gt;,
-#   wealth.how.industry &lt;chr&gt;, wealth.how.inherited &lt;chr&gt;,
-#   `wealth.how.was founder` &lt;lgl&gt;, `wealth.how.was political` &lt;lgl&gt;, and
-#   abbreviated variable names ¹​company.founded, ²​company.name, …</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> billionaires<span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(location.citizenship <span class="sc">==</span> <span class="st">"Mexico"</span> <span class="sc">&amp;</span> location.region <span class="sc">==</span> <span class="st">"Latin America"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, year, location.citizenship, location.region) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"Latin America"</span>, <span class="st">"North America"</span>,location.region))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df_2 <span class="ot">&lt;-</span>billionaires <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, <span class="st">"wealth.worth in billions"</span>, wealth.how.industry, location.region, location.citizenship) <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="st">"wealth.worth in billions"</span>, <span class="sc">~</span><span class="st">'wealth.worth.billions'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"East Asia"</span>, <span class="st">"Asia"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"South Asia"</span>, <span class="st">"Asia"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"Middle East/North Africa"</span>, <span class="st">"Africa"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"Sub-Saharan Africa"</span>, <span class="st">"Africa"</span>, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                             location.region)))))</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>df_3 <span class="ot">&lt;-</span> <span class="fu">full_join</span>(df_1,df_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(name, location.citizenship, location.region,
+continent)`</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(billionaires)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_1 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 2,614
-Columns: 22
-$ name                       &lt;chr&gt; "Bill Gates", "Bill Gates", "Bill Gates", "…
-$ rank                       &lt;dbl&gt; 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5…
-$ year                       &lt;dbl&gt; 1996, 2001, 2014, 1996, 2001, 2014, 1996, 2…
-$ company.founded            &lt;dbl&gt; 1975, 1975, 1975, 1962, 1962, 1990, 1896, 1…
-$ company.name               &lt;chr&gt; "Microsoft", "Microsoft", "Microsoft", "Ber…
-$ company.relationship       &lt;chr&gt; "founder", "founder", "founder", "founder",…
-$ company.sector             &lt;chr&gt; "Software", "Software", "Software", "Financ…
-$ company.type               &lt;chr&gt; "new", "new", "new", "new", "new", "privati…
-$ demographics.age           &lt;dbl&gt; 40, 45, 58, 65, 70, 74, 0, 48, 77, 68, 56, …
-$ demographics.gender        &lt;chr&gt; "male", "male", "male", "male", "male", "ma…
-$ location.citizenship       &lt;chr&gt; "United States", "United States", "United S…
-$ `location.country code`    &lt;chr&gt; "USA", "USA", "USA", "USA", "USA", "MEX", "…
-$ location.gdp               &lt;dbl&gt; 8.10e+12, 1.06e+13, 0.00e+00, 8.10e+12, 1.0…
-$ location.region            &lt;chr&gt; "North America", "North America", "North Am…
-$ wealth.type                &lt;chr&gt; "founder non-finance", "founder non-finance…
-$ `wealth.worth in billions` &lt;dbl&gt; 18.5, 58.7, 76.0, 15.0, 32.3, 72.0, 13.1, 3…
-$ wealth.how.category        &lt;chr&gt; "New Sectors", "New Sectors", "New Sectors"…
-$ `wealth.how.from emerging` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
-$ wealth.how.industry        &lt;chr&gt; "Technology-Computer", "Technology-Computer…
-$ wealth.how.inherited       &lt;chr&gt; "not inherited", "not inherited", "not inhe…
-$ `wealth.how.was founder`   &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
-$ `wealth.how.was political` &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…</code></pre>
+<pre><code># A tibble: 1 × 2
+  continent         n
+  &lt;chr&gt;         &lt;int&gt;
+1 North America    16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_2 <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  continent         n
+  &lt;chr&gt;         &lt;int&gt;
+1 Africa           94
+2 Asia            413
+3 Europe          470
+4 Latin America   114
+5 North America   562</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_3 <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  continent         n
+  &lt;chr&gt;         &lt;int&gt;
+1 Africa           94
+2 Asia            413
+3 Europe          470
+4 Latin America   114
+5 North America   578</code></pre>
 </div>
 </div>
 </section>
@@ -311,7 +326,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -347,24 +379,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

@@ -13,7 +13,7 @@ The introduction provides motivation and context for your research. Describe you
 
 Topic: Our topic is exploring the dataset "Billionaires" which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we can create a question that helps us gather more insight on the wealth world.
 
-Research Question and Hypothesis: In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?
+**Research Question and Hypothesis: In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?**
 
 Identify the source of the data, when and how it was collected, the cases, a general description of relevant variables:
 
@@ -30,16 +30,44 @@ The methodology section should include visualizations and summary statistics rel
 library(tidyverse)
 ```
 
+billionaires\|\>
+
+filter(location.citizenship == "Mexico" & location.region == "Latin America" & year == 2014) \|\>
+
+select(name, year, location.citizenship, location.region) \|\>
+
+count(year)
+
 ```{r}
 #| label: load-data-1
+#| fig-width: 20
 billionaires <- read_csv("data/billionaires.csv")
 
-head(billionaires)
-glimpse(billionaires)
 
-billionaires |>
+df_1 <- billionaires|>
+  filter(location.citizenship == "Mexico" & location.region == "Latin America" & year == 2014) |>
+  select(name, year, location.citizenship, location.region) |>
+  mutate(continent = if_else(location.region == "Latin America", "North America",location.region))
+
+df_2 <-billionaires |>
   filter(year == 2014) |>
-  select("wealth.worth in billions", wealth.how.industry, location.region)
+  select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship) |>
+  rename_at("wealth.worth in billions", ~'wealth.worth.billions') |>
+  mutate(continent = if_else(location.region == "East Asia", "Asia",
+                     if_else(location.region == "South Asia", "Asia",
+                     if_else(location.region == "Middle East/North Africa", "Africa",
+                     if_else(location.region == "Sub-Saharan Africa", "Africa", 
+                             location.region)))))
+
+
+df_3 <- full_join(df_1,df_2)
+df_1 |>
+  count(continent)
+df_2 |>
+  count(continent)
+df_3 |>
+  count(continent)
+
 
 ```
 
