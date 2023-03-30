@@ -71,6 +71,19 @@ df_3 |>
 
 ```
 
+```{r}
+#| label: graphs
+
+df_3 |>
+  ggplot(
+    aes(x = wealth.how.industry, y = wealth.worth.billions)) +
+    geom_col() + 
+  facet_wrap("continent") +
+  theme(axis.text.x = element_text(angle = 90))
+  
+
+```
+
 #### Results
 
 Showcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you're feeling adventurous).
