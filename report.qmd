@@ -59,22 +59,32 @@ df_2 <-billionaires |>
                      if_else(location.region == "Sub-Saharan Africa", "Africa", 
                              location.region)))))
 
-
 df_3 <- full_join(df_1,df_2)
+
+
 df_1 |>
   count(continent)
 df_2 |>
   count(continent)
 df_3 |>
   count(continent)
+df_3 <- df_3 %>%
+  drop_na(wealth.worth.billions)
+df_3 |>
+  count(continent)
 
+```
 
+```         
 ```
 
 ```{r}
 #| label: graphs
 
 df_3 |>
+  filter(wealth.how.industry != 0) |>
+  
+  
   ggplot(
     aes(x = wealth.how.industry, y = wealth.worth.billions)) +
     geom_col() + 
