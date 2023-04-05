@@ -41,6 +41,8 @@ count(year)
 ```{r}
 #| label: load-data-1
 #| fig-width: 20
+billionaires <- read_csv("data/billionaires.csv")
+
 df_1 <- billionaires|>
   filter(year == 2014)|>
   select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
@@ -59,16 +61,14 @@ df_1|>
 ```{r}
 #| label: graphs
 
-df_3 |>
+df_1 |>
   filter(wealth.how.industry != 0) |>
-  
-  
   ggplot(
-    aes(x = wealth.how.industry, y = wealth.worth.billions)) +
+    aes(x = wealth.how.industry, y = wealth.worth.billions, fill = wealth.how.industry)) +
     geom_col() + 
   facet_wrap("continent") +
-  theme(axis.text.x = element_text(angle = 90))
-  
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(title = "Relationship Between Wealth Worth and Industry Among the Billionaires in each Continent", x = "Industry", y = "Wealth Worth(billions)") 
 
 ```
 
