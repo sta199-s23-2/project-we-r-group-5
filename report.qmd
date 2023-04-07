@@ -1,6 +1,6 @@
 ---
-title: "Project title"
-subtitle: "Report"
+title: "Billionaires"
+subtitle: "Data Report and Visualization"
 format: html
 editor: visual
 execute:
@@ -64,7 +64,10 @@ df_1 |>
     geom_col() + 
   facet_wrap("continent") +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(title = "Relationship Between Wealth Worth and Industry\nAmong the Billionaires in each Continent in 2014", x = "Industry", y = "Wealth Worth(billions)") +
+  labs(title = "Relationship Between Wealth Worth and Industry\nAmong the Billionaires in each Continent in 2014", 
+       x = "Industry", 
+       y = "Wealth Worth(billions)",
+       fill = "Industry type") +
   theme(plot.title = element_text(size = 10)) +
   theme(legend.text = element_text(size = 7)) +
   theme(axis.text.x = element_text(size = 5))
