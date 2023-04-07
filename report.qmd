@@ -1,6 +1,6 @@
 ---
-title: "Billionaires"
-subtitle: "Data Report and Visualization"
+title: "Wanna be rich? Here's how!"
+subtitle: "A statistical analysis regarding which industry has the highest number of billionaires based on their continent"
 format: html
 editor: visual
 execute:
@@ -9,17 +9,15 @@ execute:
 
 #### Introduction and data
 
-Our topic focus on the dataset "Billionaires" (2016) which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we can create a question that helps us gather more insight on the wealth world.
+Our topic focus on the dataset "Billionaires" (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world.
 
 Research Question and Hypothesis:
 
 -   In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?
 
-    -   First of all, we hypothesize that some continents and industries will contain more billionaires than others. Specifically, we hypothesize that North America will have the most billionaires, followed by Asia. To answer our full question, based on our prior background knowledge, we predict that the industry of technology-computer will contain the most billionaires. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.
+First of all, we hypothesize that some continents and industries will contain more billionaires than others. Specifically, we hypothesize that North America will have the most billionaires, followed by Asia. To answer our full question, based on our prior background knowledge, we predict that the industry of technology-computer will contain the most billionaires. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.
 
-Identify the source of the data, when and how it was collected, the cases, a general description of relevant variables:
-
--   The data was collected in 1996, 2001, and 2014. We are only focusing on the data collected in 2014. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the wealth worth, industry, and their continent.
+The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. We are only focusing on the data collected in 2014. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the wealth worth, industry, and their continent.
 
 #### Methodology
 
@@ -65,18 +63,19 @@ df_1 |>
        x = "Industry", 
        y = "Wealth Worth(billions)",
        fill = "Industry type") +
-  theme(plot.title = element_text(size = 10)) +
+  theme(plot.title = element_text(size = 14)) +
   theme(legend.text = element_text(size = 7)) +
-  theme(axis.text.x = element_text(size = 5))
+  theme(legend.title = element_text(size = 13)) +
+  theme(axis.text.x = element_blank())
 
 ```
 
 #### Results
 
--   To answer our research question, we created a plot to visualize the relationship between industry and wealth worth, with industry being on the x axis and wealth worth in billions on the y axis. Additionally, in order to compare these variables by continent, we used facet wrap to make multiple plots next to each other. This visualization made it easy for us to draw conclusions to our question.
+-   To answer our research question, we created a plot to visualize the relationship between industry and wealth worth, with industry being on the x-axis and wealth worth in billions on the y-axis. Additionally, in order to compare these variables by continent, we used facet wrap to make multiple plots next to each other. This visualization made it easy for us to draw conclusions to our question.
 
 -   From the table depicting the number of billionaires per continent in 2014, we found that overall, North America had the most billionaires (as our hypothesis stated), followed by Europe and then Asia. This does not line up with the prediction, as we had predicted Asia to come first. For industry, we found that technology-computer was in fact the industry with the most billionaires in North America. However, it was found that each continent had a very different turn out regarding which industry was the most successful. For Europe and Latin America, the industry with the most billionaires was the consumer industry; for Africa, the diversified financial industry; and for Asia, the real estate industry.
 
 **Citation and Reference**
 
--   "Billionaires CSV File" from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created 5-17-16.
+-   "Billionaires CSV File" from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created on 5/17/2016.
