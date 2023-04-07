@@ -214,16 +214,18 @@ lgl  (3): wealth.how.from emerging, wealth.how.was founder, wealth.how.was p...
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> billionaires<span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2014</span>)<span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, <span class="st">"wealth.worth in billions"</span>, wealth.how.industry, location.region, location.citizenship)<span class="sc">|&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_at</span>(<span class="st">"wealth.worth in billions"</span>, <span class="sc">~</span><span class="st">'wealth.worth.billions'</span>)<span class="sc">|&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"East Asia"</span>, <span class="st">"Asia"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"South Asia"</span>, <span class="st">"Asia"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"Middle East/North Africa"</span>, <span class="st">"Africa"</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"Sub-Saharan Africa"</span>, <span class="st">"Africa"</span>, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">if_else</span>(location.region <span class="sc">==</span> <span class="st">"Latin America"</span> <span class="sc">&amp;</span> location.citizenship <span class="sc">==</span> <span class="st">"Mexico"</span>, <span class="st">"North America"</span>,location.region))))))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df_1<span class="sc">|&gt;</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, <span class="st">`</span><span class="at">wealth.worth in billions</span><span class="st">`</span>, wealth.how.industry, location.region, location.citizenship)<span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span><span class="st">'wealth.worth.billions'</span>, <span class="st">`</span><span class="at">wealth.worth in billions</span><span class="st">`</span>)<span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    location.region <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"East Asia"</span>, <span class="st">"South Asia"</span>) <span class="sc">~</span> <span class="st">"Asia"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    location.region <span class="sc">==</span> <span class="st">"Middle East/North Africa"</span> <span class="sc">~</span> <span class="st">"Africa"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    location.region <span class="sc">==</span> <span class="st">"Sub-Saharan Africa"</span> <span class="sc">~</span> <span class="st">"Africa"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    location.region <span class="sc">==</span> <span class="st">"Latin America"</span> <span class="sc">&amp;</span> location.citizenship <span class="sc">==</span> <span class="st">"Mexico"</span> <span class="sc">~</span> <span class="st">"North America"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> location.region</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df_1<span class="sc">|&gt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   continent         n

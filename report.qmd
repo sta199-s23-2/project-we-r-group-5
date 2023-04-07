@@ -32,7 +32,6 @@ The methodology section should include visualizations and summary statistics rel
 library(tidyverse)
 ```
 
-
 ```{r}
 #| label: load-data-1
 #| fig-width: 20
@@ -40,13 +39,15 @@ billionaires <- read_csv("data/billionaires.csv")
 
 df_1 <- billionaires|>
   filter(year == 2014)|>
-  select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
-  rename_at("wealth.worth in billions", ~'wealth.worth.billions')|>
-  mutate(continent = if_else(location.region == "East Asia", "Asia",
-                     if_else(location.region == "South Asia", "Asia",
-                     if_else(location.region == "Middle East/North Africa", "Africa",
-                     if_else(location.region == "Sub-Saharan Africa", "Africa", 
-                     if_else(location.region == "Latin America" & location.citizenship == "Mexico", "North America",location.region))))))
+  select(name, `wealth.worth in billions`, wealth.how.industry, location.region, location.citizenship)|>
+  rename_with(~'wealth.worth.billions', `wealth.worth in billions`)|>
+  mutate(continent = case_when(
+    location.region %in% c("East Asia", "South Asia") ~ "Asia",
+    location.region == "Middle East/North Africa" ~ "Africa",
+    location.region == "Sub-Saharan Africa" ~ "Africa",
+    location.region == "Latin America" & location.citizenship == "Mexico" ~ "North America",
+    TRUE ~ location.region
+  ))
 
 df_1|>
   count(continent)
@@ -69,6 +70,7 @@ df_1 |>
   theme(axis.text.x = element_text(size = 5))
 
 ```
+
 **Our methodology involves creating a table that counts the number of billionaires per continent in 2014. This gives us an overview of the numbers alone, industry aside. Next, in order to also compare industry and wealth worth, we thought it would be best to create a bar plot for each continent. Thus we used facet wrap to create multiple side-by-side plots that depict the relationship between industry and wealth worth.**
 
 #### Results
