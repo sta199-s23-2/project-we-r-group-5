@@ -189,24 +189,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Our topic focus on the dataset “Billionaires” (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world, which is helpful for those who are deciding which industry to enter in different countries.</p>
 <p>Research Question and Hypothesis:</p>
 <ul>
-<li>In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?</li>
+<li>How has the relationship between wealth worth and industry among billionaires changed in each continent as time goes on?</li>
 </ul>
-<p>To answer our full question, based on our prior background knowledge, we predict that the industry of technology-computer will contain the most billionaires. More broadly, we hypothesize that some continents and industries will contain more billionaires than others. Additionally, we hypothesize that North America will have the most billionaires, followed by Asia. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.</p>
-<p>The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. We are only focusing on the data collected in 2014. It compiled Forbes World’s Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations. Specifically in 2014, it contains 1653 observations in 2014, the year we have chosen to focus our analysis on.</p>
+<p>To answer our full question, based on our prior background knowledge, we predict that the number of billionaires involved in the industry of technology-computer will increase as time goes by because technology is an industry that is growing rapidly. More broadly speaking, we hypothesize that each continent has a different industry that contains the most billionaires, as each continent has very different resources to offer to the world. Additionally, we hypothesize that North America will have the most billionaires, followed by Asia. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.</p>
+<p>The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. We are using data from all three years to see how the wealth industries have changed over time by comparing data about the wealth industries from each provided year. It compiled Forbes World’s Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the year, wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations.</p>
 </section>
 <section id="methodology" class="level4">
 <h4 class="anchored" data-anchor-id="methodology">Methodology</h4>
 <p>Our methodology involves creating a table that counts the number of billionaires per continent in 2014. This gives us an overview of the numbers alone, industry aside. Next, in order to also compare industry and wealth worth, we thought it would be best to create a bar plot for each continent. Thus we used facet wrap to create multiple side-by-side plots that depict the relationship between industry and wealth worth.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>billionaires <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/billionaires.csv"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> billionaires<span class="sc">|&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2014</span>)<span class="sc">|&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, <span class="st">`</span><span class="at">wealth.worth in billions</span><span class="st">`</span>, wealth.how.industry, location.region, location.citizenship)<span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span><span class="st">'wealth.worth.billions'</span>, <span class="st">`</span><span class="at">wealth.worth in billions</span><span class="st">`</span>)<span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(name, <span class="st">"wealth.worth in billions"</span>, wealth.how.industry, location.region, location.citizenship)<span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span><span class="st">'wealth.worth.billions'</span>, <span class="st">"wealth.worth in billions"</span>)<span class="sc">|&gt;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">case_when</span>(</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    location.region <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"East Asia"</span>, <span class="st">"South Asia"</span>) <span class="sc">~</span> <span class="st">"Asia"</span>,</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    location.region <span class="sc">==</span> <span class="st">"Middle East/North Africa"</span> <span class="sc">~</span> <span class="st">"Africa"</span>,</span>
@@ -233,6 +234,130 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="report_files/figure-html/graphs-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|: label: Logistic_regression</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_1<span class="sc">$</span>wealth.how.industry <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df_1<span class="sc">$</span>wealth.how.industry)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#My friend's model:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>model_2a <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.how.industry <span class="sc">~</span> wealth.how.industry <span class="sc">*</span> wealth.worth.billions,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> df_1,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): the response appeared on the
+right-hand side and was dropped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): problem with term 1 in
+model.matrix: no columns are assigned</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: algorithm did not converge</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model_2a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 5
+   term                                         estim…¹ std.e…² statis…³ p.value
+   &lt;chr&gt;                                          &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+ 1 (Intercept)                                     26.6  11182.  2.38e-3   0.998
+ 2 wealth.worth.billions                          -50.6 102884. -4.92e-4   1.00 
+ 3 wealth.how.industryConstrution:wealth.worth…    50.6 103230.  4.91e-4   1.00 
+ 4 wealth.how.industryConsumer:wealth.worth.bi…    50.6 102831.  4.92e-4   1.00 
+ 5 wealth.how.industryDiversified financial:we…    50.6 102871.  4.92e-4   1.00 
+ 6 wealth.how.industryEnergy:wealth.worth.bill…    50.6 102963.  4.92e-4   1.00 
+ 7 wealth.how.industryHedge funds:wealth.worth…    50.6 103162.  4.91e-4   1.00 
+ 8 wealth.how.industryMedia:wealth.worth.billi…    50.6 102888.  4.92e-4   1.00 
+ 9 wealth.how.industryMining and metals:wealth…    50.6 103062.  4.91e-4   1.00 
+10 wealth.how.industryMoney Management:wealth.…    50.6 102970.  4.92e-4   1.00 
+11 wealth.how.industryNon-consumer industrial:…    50.6 103006.  4.92e-4   1.00 
+12 wealth.how.industryOther:wealth.worth.billi…    50.6 103306.  4.90e-4   1.00 
+13 wealth.how.industryPrivate equity/leveraged…    50.6 104036.  4.87e-4   1.00 
+14 wealth.how.industryReal Estate:wealth.worth…    50.6 102876.  4.92e-4   1.00 
+15 wealth.how.industryRetail, Restaurant:wealt…    50.6 102859.  4.92e-4   1.00 
+16 wealth.how.industryTechnology-Computer:weal…    50.6 102870.  4.92e-4   1.00 
+17 wealth.how.industryTechnology-Medical:wealt…    50.6 103229.  4.91e-4   1.00 
+18 wealth.how.industryVenture Capital:wealth.w…    50.6 122947.  4.12e-4   1.00 
+# … with abbreviated variable names ¹​estimate, ²​std.error, ³​statistic</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#My model:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>model_2b <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.how.industry <span class="sc">~</span> wealth.how.industry <span class="sc">+</span> wealth.worth.billions,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> df_1,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): the response appeared on the
+right-hand side and was dropped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): problem with term 1 in
+model.matrix: no columns are assigned</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model_2b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term                  estimate std.error statistic p.value
+  &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 (Intercept)               1.49      1.76     0.848  0.397 
+2 wealth.worth.billions     2.55      1.35     1.89   0.0589</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>AIC_1 <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.how.industry <span class="sc">~</span> wealth.how.industry <span class="sc">*</span> wealth.worth.billions,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> df_1,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">family =</span> <span class="st">"binomial"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): the response appeared on the
+right-hand side and was dropped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): problem with term 1 in
+model.matrix: no columns are assigned</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: algorithm did not converge</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>AIC_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#My model</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>AIC_2 <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(wealth.how.industry <span class="sc">~</span> wealth.how.industry <span class="sc">+</span> wealth.worth.billions,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> df_1,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">family =</span> <span class="st">"binomial"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(AIC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): the response appeared on the
+right-hand side and was dropped</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in model.matrix.default(mt, mf, contrasts): problem with term 1 in
+model.matrix: no columns are assigned</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>AIC_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 72.82164</code></pre>
 </div>
 </div>
 </section>
