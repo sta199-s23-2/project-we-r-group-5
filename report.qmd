@@ -94,6 +94,7 @@ df_2 <- billionaires|>
 #| label: graph-2001
 df_2 |>
   filter(continent != 0) |>
+  filter(wealth.how.industry != 0) |>
   ggplot(
     aes(x = wealth.how.industry, y = wealth.worth.billions, fill = wealth.how.industry)) +
     geom_col() + 
