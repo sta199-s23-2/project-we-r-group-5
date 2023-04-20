@@ -29,6 +29,7 @@ Our methodology involves creating a table that counts the number of billionaires
 
 library(tidyverse)
 library(tidymodels)
+library(MASS)
 ```
 
 ```{r}
@@ -91,6 +92,24 @@ model_2b <- logistic_reg() |>
       family = "binomial") |>
   tidy()
 model_2b
+
+AIC_1 <- logistic_reg() |>
+  set_engine("glm") |>
+  fit(wealth.how.industry ~ wealth.how.industry * wealth.worth.billions,
+        data = df_1,
+        family = "binomial")|>
+  glance() |>
+  pull(AIC)
+AIC_1
+  #My model
+AIC_2 <- logistic_reg() |>
+  set_engine("glm") |>
+  fit(wealth.how.industry ~ wealth.how.industry + wealth.worth.billions,
+        data = df_1,
+        family = "binomial") |>
+  glance() |>
+  pull(AIC)
+AIC_2
 ```
 
 #### Results
