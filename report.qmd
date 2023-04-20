@@ -35,6 +35,8 @@ library(tidymodels)
 #| label: load-data-2014
 #| fig-width: 20
 #| message: false
+
+#Load data
 billionaires <- read_csv("data/billionaires.csv")
 
 df_1 <- billionaires|>
