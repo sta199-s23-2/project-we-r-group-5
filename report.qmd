@@ -93,7 +93,7 @@ df_2 <- billionaires|>
 ```{r}
 #| label: graph-2001
 df_2 |>
-  filter(wealth.how.industry != 0) |>
+  filter(continent != 0) |>
   ggplot(
     aes(x = wealth.how.industry, y = wealth.worth.billions, fill = wealth.how.industry)) +
     geom_col() + 
@@ -109,7 +109,6 @@ df_2 |>
   theme(axis.text.x = element_blank())
 
 ```
-
 
 ```{r}
 #|: label: Logistic_regression
