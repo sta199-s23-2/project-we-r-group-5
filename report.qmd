@@ -9,15 +9,15 @@ execute:
 
 #### Introduction and data
 
-Our topic focus on the dataset "Billionaires" (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world.
+Our topic focus on the dataset "Billionaires" (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world, which is helpful for those who are deciding which industry to enter in different countries.
 
 Research Question and Hypothesis:
 
 -   In 2014, how did the relationship between wealth worth and industry among the billionaires differ between each continent?
 
-First of all, we hypothesize that some continents and industries will contain more billionaires than others. Specifically, we hypothesize that North America will have the most billionaires, followed by Asia. To answer our full question, based on our prior background knowledge, we predict that the industry of technology-computer will contain the most billionaires. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.
+To answer our full question, based on our prior background knowledge, we predict that the industry of technology-computer will contain the most billionaires. More broadly, we hypothesize that some continents and industries will contain more billionaires than others. Additionally, we hypothesize that North America will have the most billionaires, followed by Asia. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.
 
-The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. We are only focusing on the data collected in 2014. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the wealth worth, industry, and their continent.
+The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. We are only focusing on the data collected in 2014. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations. Specifically in 2014, it contains 1653 observations in 2014, the year we have chosen to focus our analysis on.
 
 #### Methodology
 
