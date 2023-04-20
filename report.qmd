@@ -217,24 +217,38 @@ df_technology_2001_2014 <- rbind(df_technology_2014, df_technology_2001)
 ```
 
 ```{r}
-df_technology_2001_2014 |>
-filter(!is.na(mean_wealth)) |>
-count(wealth.how.industry)
+df_technology_2014 <- df_1|>
+  filter(wealth.how.industry == "Technology-Computer")|>
+  dplyr::select(wealth.worth.billions, wealth.how.industry)
 
-sd1 <- df_technology_2001_2014 |>
-  filter(wealth.how.industry == "2014") |>
-  summarize(sd_a = sd(mean_wealth, na.rm = T)) |>
-  as.numeric()
-n1 <-2614
 
-sd2 <- df_technology_2001_2014 |>
-  filter(wealth.how.industry == "2001") |>
-  summarize(sd_a = sd(mean_wealth, na.rm = T)) |>
+df_technology_2001<- df_2|>
+  filter(wealth.how.industry == "Technology-Computer")|>
+  dplyr::select(wealth.worth.billions, wealth.how.industry)
+
+```
+
+```{r}
+df_technology_2014|>
+  filter(!is.na(wealth.worth.billions))|>
+  count(wealth.how.industry)
+
+df_technology_2001|>
+  filter(!is.na(wealth.worth.billions))|>
+  count(wealth.how.industry)
+
+sd1 <- df_technology_2014|>
+  summarize(sd_a = sd(wealth.worth.billions, na.rm = T)) |>
   as.numeric()
-n2 <-2614
+n1 <-131
+
+sd2 <- df_technology_2001|>
+  summarize(sd_a = sd(wealth.worth.billions, na.rm = T)) |>
+  as.numeric()
+n2 <-55
 
 tscore <- (estimate - 0) / sqrt(((sd1^2)/n1) + ((sd2^2)/n2))
-pt(tscore, df = 5224, lower.tail = F)
+pt(tscore, df= 184.5772 , lower.tail = F)
 ```
 
 #### Results
