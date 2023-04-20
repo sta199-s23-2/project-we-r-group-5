@@ -28,6 +28,7 @@ Our methodology involves creating a table that counts the number of billionaires
 #| message: false
 
 library(tidyverse)
+library(tidymodels)
 ```
 
 ```{r}
@@ -68,6 +69,28 @@ df_1 |>
   theme(legend.title = element_text(size = 13)) +
   theme(axis.text.x = element_blank())
 
+```
+
+```{r}
+#|: label: Logistic_regression
+df_1$wealth.how.industry <- as.factor(df_1$wealth.how.industry)
+#My friend's model:
+model_2a <- logistic_reg() |>
+  set_engine("glm") |>
+  fit(wealth.how.industry ~ wealth.how.industry * wealth.worth.billions,
+      data = df_1,
+      family = "binomial") |>
+  tidy()
+model_2a
+
+#My model:
+model_2b <- logistic_reg() |>
+  set_engine("glm") |>
+  fit(wealth.how.industry ~ wealth.how.industry + wealth.worth.billions,
+      data = df_1,
+      family = "binomial") |>
+  tidy()
+model_2b
 ```
 
 #### Results
