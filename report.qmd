@@ -29,7 +29,6 @@ Our methodology involves creating a table that counts the number of billionaires
 
 library(tidyverse)
 library(tidymodels)
-library(MASS)
 ```
 
 ```{r}
@@ -40,8 +39,8 @@ billionaires <- read_csv("data/billionaires.csv")
 
 df_1 <- billionaires|>
   filter(year == 2014)|>
-  select(name, `wealth.worth in billions`, wealth.how.industry, location.region, location.citizenship)|>
-  rename_with(~'wealth.worth.billions', `wealth.worth in billions`)|>
+  dplyr::select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
+  rename_with(~'wealth.worth.billions', "wealth.worth in billions")|>
   mutate(continent = case_when(
     location.region %in% c("East Asia", "South Asia") ~ "Asia",
     location.region == "Middle East/North Africa" ~ "Africa",
