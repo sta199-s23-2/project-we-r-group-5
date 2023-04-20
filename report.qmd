@@ -112,6 +112,45 @@ df_2 |>
 ```
 
 ```{r}
+#| label: load-data-1996
+#| fig-width: 20
+#| message: false
+billionaires <- read_csv("data/billionaires.csv")
+
+df_3 <- billionaires|>
+  filter(year == 1996)|>
+  dplyr::select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
+  rename_with(~'wealth.worth.billions', "wealth.worth in billions")|>
+  mutate(continent = case_when(
+    location.region %in% c("East Asia", "South Asia") ~ "Asia",
+    location.region == "Middle East/North Africa" ~ "Africa",
+    location.region == "Sub-Saharan Africa" ~ "Africa",
+    location.region == "Latin America" & location.citizenship == "Mexico" ~ "North America",
+    TRUE ~ location.region
+  ))
+```
+
+```{r}
+#| label: graph-1996
+df_3 |>
+  filter(continent != 0) |>
+  filter(wealth.how.industry != 0) |>
+  ggplot(
+    aes(x = wealth.how.industry, y = wealth.worth.billions, fill = wealth.how.industry)) +
+    geom_col() + 
+  facet_wrap("continent") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(title = "Relationship Between Wealth Worth and Industry\nAmong the Billionaires in each Continent in 1996", 
+       x = "Industry", 
+       y = "Wealth Worth(billions)",
+       fill = "Industry type") +
+  theme(plot.title = element_text(size = 14)) +
+  theme(legend.text = element_text(size = 7)) +
+  theme(legend.title = element_text(size = 13)) +
+  theme(axis.text.x = element_blank())
+```
+
+```{r}
 #|: label: Logistic_regression
 df_1$wealth.how.industry <- as.factor(df_1$wealth.how.industry)
 #My friend's model:
