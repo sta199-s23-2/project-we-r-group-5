@@ -40,16 +40,78 @@ library(tidymodels)
 billionaires <- read_csv("data/billionaires.csv")
 
 df_1 <- billionaires|>
-  filter(year == 2014)|>
-  dplyr::select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
+  dplyr::select(year, name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
   rename_with(~'wealth.worth.billions', "wealth.worth in billions")|>
   mutate(continent = case_when(
-    location.region %in% c("East Asia", "South Asia") ~ "Asia",
-    location.region == "Middle East/North Africa" ~ "Africa",
-    location.region == "Sub-Saharan Africa" ~ "Africa",
     location.region == "Latin America" & location.citizenship == "Mexico" ~ "North America",
     TRUE ~ location.region
   ))
+
+df_1
+```
+
+```{r}
+#| label: mean_wealth_1996
+
+df_1996 <- df_1 |>
+  filter(year == 1996) |>
+  filter(wealth.how.industry != 0) |>
+  filter(location.region == "North America") |>
+  group_by(wealth.how.industry) |>
+  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T)) |>
+  mutate(year = if_else(mean_wealth != 0, 1996, 0))
+  
+
+```
+
+```{r}
+#| label: mean_wealth_2001
+
+df_2001 <- df_1 |>
+  filter(year == 2001) |>
+  filter(wealth.how.industry != 0) |>
+  filter(location.region == "North America") |>
+  group_by(wealth.how.industry) |>
+  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))|>
+  mutate(year = if_else(mean_wealth != 0, 2001, 0))
+```
+
+```{r}
+#| label: mean_wealth_2014
+
+df_2014 <- df_1 |>
+  filter(year == 2014) |>
+  filter(wealth.how.industry != 0) |>
+  filter(location.region == "North America") |>
+  group_by(wealth.how.industry) |>
+  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))|>
+  mutate(year = if_else(mean_wealth != 0, 2014, 0))
+```
+
+```{r}
+#| label: visualization
+#| fig-width: 10
+#df_combined <- left_join(df_2001, df_1996, by = "wealth.how.industry")
+
+#df_combined <- left_join(df_combined, df_2014, by = "wealth.how.industry")
+
+distinct_colors <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f",
+                     "#ff7f00", "#cab2d6", "#6a3d9a", "#ffff99", "#b15928", "#8dd3c7", "#bebada",
+                     "#fb8072", "#80b1d3", "grey")
+
+df_rbind <- rbind(df_1996, df_2001)
+df_rbind <- rbind(df_rbind, df_2014)
+
+df_rbind |>
+  ggplot(
+    aes(x = year,
+        y = mean_wealth,
+        color = wealth.how.industry))+
+  geom_line() +
+  geom_point() +
+  scale_x_continuous(limits = c(1996, 2014.5), breaks = c(1996, 2001, 2014)) +
+  scale_color_manual(values = distinct_colors)
+
 ```
 
 ```{r}
