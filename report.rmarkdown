@@ -7,6 +7,7 @@ execute:
   echo: true
 ---
 
+
 #### Introduction and data
 
 Our topic focus on the dataset "Billionaires" (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world, which is helpful for those who are deciding which industry to enter in different countries.
@@ -22,6 +23,7 @@ The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1
 #### Methodology
 
 Our methodology involves creating a table that counts the number of billionaires per continent in 2014. This gives us an overview of the numbers alone, industry aside. Next, in order to also compare industry and wealth worth, we thought it would be best to create a bar plot for each continent. Thus we used facet wrap to create multiple side-by-side plots that depict the relationship between industry and wealth worth.
+
 
 ```{r}
 #| label: load-pkgs
@@ -209,9 +211,11 @@ AIC_2 <- logistic_reg() |>
 AIC_2
 ```
 
+
 H0:
 
 Ha:
+
 
 ```{r}
 
@@ -262,6 +266,7 @@ tscore <- (estimate - 0) / sqrt(((sd1^2)/n1) + ((sd2^2)/n2))
 pt(tscore, df= 184.5772 , lower.tail = F)
 ```
 
+
 #### Results
 
 -   To answer our research question, we created a plot to visualize the relationship between industry and wealth worth, with industry being on the x-axis and wealth worth in billions on the y-axis. Additionally, in order to compare these variables by continent, we used facet wrap to make multiple plots next to each other. This visualization made it easy for us to draw conclusions to our question.
@@ -271,3 +276,4 @@ pt(tscore, df= 184.5772 , lower.tail = F)
 **Citation and Reference**
 
 -   "Billionaires CSV File" from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created on 5/17/2016.
+
