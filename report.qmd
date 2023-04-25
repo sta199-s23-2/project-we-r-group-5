@@ -9,15 +9,19 @@ execute:
 
 #### Introduction and data
 
-Our topic focus on the dataset "Billionaires" (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world, which is helpful for those who are deciding which industry to enter in different countries.
+Our topic focus on the dataset "Billionaires" (2016), which contains information on the Billionaires in the world in 1996, 2001, 2014. The dataset involves information on each billionaire such as their country, wealth worth, wealth type, industry, etc. Using some of these variables, we came up with a question that helps us gather more insight on the wealth world, which is helpful for those who are deciding which industry to enter in North America, and how that changes over time.
 
 Research Question and Hypothesis:
 
--   How has the relationship between wealth worth and industry among billionaires changed in each continent as time goes on?
+-   How has the relationship between wealth worth and industry among billionaires changed in North America as time goes on?
 
-To answer our full question, based on our prior background knowledge, we predict that the number of billionaires involved in the industry of technology-computer will increase as time goes by because technology is an industry that is growing rapidly. More broadly speaking, we hypothesize that each continent has a different industry that contains the most billionaires, as each continent has very different resources to offer to the world. Additionally, we hypothesize that North America will have the most billionaires, followed by Asia. However, we also acknowledge that each continent is very different, so our prior background knowledge may only apply to North America, where we reside.
+Based on our prior background knowledge, we predict that the number of billionaires involved in the industry of technology-computer will increase as time goes by because technology is an industry that is growing rapidly. We believe that the consumer industry may increase as well, and that the some of the more popular industries in 1996 might decrease in the number of billionaires as time passes. More broadly speaking, we hypothesize that the overall number of billionaires will increase, and therefore each industry will have a higher number of billionaires as time progresses, simply because there is more money in the world.
 
-The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. We are using data from all three years to see how the wealth industries have changed over time by comparing data about the wealth industries from each provided year. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the year, wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations.
+The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. \[1\] We are using data from all three years to see how the wealth industries have changed over time by comparing data about the wealth industries from each provided year. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the year, wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations. We are focusing our studies on the continent North America, to explore the relationship between billionaires and wealth worth in this area in particular over time.
+
+To help us answer our research question, we looked at the Businesstech article, \"The job sectors where billionaires make their money\" presents findings from a study by UBS and PwC on the sectors where most billionaires succeeded. \[2\] The study analyzed the wealth of 2,000 billionaires worldwide and found that the top sectors where billionaires made their wealth are finance and investments, technology, manufacturing, real estate, and fashion and retail. Finance and investments had the most billionaires with 267, followed by technology with 221, manufacturing with 215, real estate with 163, and fashion and retail with 135. The study underscores the diversity of the sectors in which billionaires can generate wealth.
+
+This article presents findings using billionaires from all over the world, whereas our research question is only exploring billionaires within North America. This will allow us to compare how the relationship between billionaires in North America and their industries differ from billionaires worldwide. Additionally, the article notes that technology is a top sector for billionaires to make most of their money, which reflects our hypothesis that technology will reflect the greatest increase in billionaires, as it is a sector that is growing rapidly.
 
 #### Methodology
 
@@ -53,23 +57,26 @@ df_1
 ```{r}
 #| label: count-billionaires-per-year
 
-count_billionaires_1996 <- df_1 |>
-  filter(year == 1996) |>
-  filter(wealth.how.industry != 0) |>
-  filter(location.region == "North America") 
-nrow(count_billionaires_1996)
+df_1996 <- df_1 |>
+  filter(year == 1996, wealth.how.industry != 0) |>
+  group_by(wealth.how.industry) |>
+  summarize(num_billionaires = n()) |>
+  arrange(desc(num_billionaires))
+df_1996
 
-count_billionaires_2001 <- df_1 |>
-  filter(year == 2001) |>
-  filter(wealth.how.industry != 0) |>
-  filter(location.region == "North America") 
-nrow(count_billionaires_2001)
+df_2001 <- df_1  |>
+  filter(year == 2001, wealth.how.industry != 0) |>
+  group_by(wealth.how.industry) |>
+  summarize(num_billionaires = n()) |>
+  arrange(desc(num_billionaires))
+df_2001
 
-count_billionaires_2014 <- df_1 |>
-  filter(year == 2014) |>
-  filter(wealth.how.industry != 0) |>
-  filter(location.region == "North America") 
-nrow(count_billionaires_2014)
+df_2014 <- df_1  |>
+  filter(year == 2014, wealth.how.industry != 0) |>
+  group_by(wealth.how.industry) |>
+  summarize(num_billionaires = n()) |>
+  arrange(desc(num_billionaires))
+df_2014
 
 
 
@@ -254,4 +261,6 @@ pt(tscore, df= 793.3797 , lower.tail = F)
 
 **Citation and Reference**
 
--   "Billionaires CSV File" from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created on 5/17/2016.
+\[1\] "Billionaires CSV File" from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created on 5/17/2016.
+
+\[2\] Businesstech. (2022, April 18). The job sectors where most billionaires make their money. Retrieved March 9, 2023, from[ https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/](https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/)
