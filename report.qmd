@@ -53,6 +53,7 @@ df_1
 ```{r}
 #| label: mean_wealth_1996
 
+#Create data frame for mean wealth in 1996
 df_1996 <- df_1 |>
   filter(year == 1996) |>
   filter(wealth.how.industry != 0) |>
@@ -67,6 +68,7 @@ df_1996 <- df_1 |>
 ```{r}
 #| label: mean_wealth_2001
 
+#Create data frame for mean wealth in 2001
 df_2001 <- df_1 |>
   filter(year == 2001) |>
   filter(wealth.how.industry != 0) |>
@@ -79,6 +81,7 @@ df_2001 <- df_1 |>
 ```{r}
 #| label: mean_wealth_2014
 
+#Create data frame for mean wealth in 2014
 df_2014 <- df_1 |>
   filter(year == 2014) |>
   filter(wealth.how.industry != 0) |>
@@ -91,26 +94,33 @@ df_2014 <- df_1 |>
 ```{r}
 #| label: visualization
 #| fig-width: 10
-#df_combined <- left_join(df_2001, df_1996, by = "wealth.how.industry")
+#| fig-height: 8
 
-#df_combined <- left_join(df_combined, df_2014, by = "wealth.how.industry")
+#Assign color to the legend
+distinct_colors <- c("#E6194B", "#3CB44B", "#FFE119", "#0082C8", "#F58231", "#911EB4", "#46F0F0", 
+                     "#F032E6", "#D2F53C", "#008080", "#AA6E28", "#800000", "#000080", "#808000",
+                     "#E6BEFF", "#AAFFC3", "black")
 
-distinct_colors <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f",
-                     "#ff7f00", "#cab2d6", "#6a3d9a", "#ffff99", "#b15928", "#8dd3c7", "#bebada",
-                     "#fb8072", "#80b1d3", "grey")
-
+#Combine data frame together
 df_rbind <- rbind(df_1996, df_2001)
 df_rbind <- rbind(df_rbind, df_2014)
 
+#visualize the graph
 df_rbind |>
   ggplot(
     aes(x = year,
         y = mean_wealth,
         color = wealth.how.industry))+
-  geom_line() +
+  geom_line(size = 1) +
   geom_point() +
   scale_x_continuous(limits = c(1996, 2014.5), breaks = c(1996, 2001, 2014)) +
-  scale_color_manual(values = distinct_colors)
+  theme_classic()+
+  scale_color_manual(values = distinct_colors) +
+  labs(
+    x = "Year",
+    y = "Mean Wealth Worth in Billions ($)",
+    color = "Industry type"
+  )
 
 ```
 
