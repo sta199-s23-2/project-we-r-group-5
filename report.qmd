@@ -172,9 +172,9 @@ df_1996<- df_1|>
 
 ```
 
-$H_{0}= 2014-2001 > 0$
+$H_{0}= 2014-2001 < 0$
 
-$H_{a}= 2014 - 2001 < 0$
+$H_{a}= 2014 - 2001 > 0$
 
 The null hypothesis states that from 2001 to 2014, the average wealth worth has not changed.
 
