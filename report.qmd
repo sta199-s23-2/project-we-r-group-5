@@ -4,7 +4,7 @@ subtitle: "A statistical analysis regarding which industry has the highest numbe
 format: html
 editor: visual
 execute:
-  echo: true
+  echo: false
 ---
 
 #### Introduction and data
@@ -51,6 +51,31 @@ df_1
 ```
 
 ```{r}
+#| label: count-billionaires-per-year
+
+count_billionaires_1996 <- df_1 |>
+  filter(year == 1996) |>
+  filter(wealth.how.industry != 0) |>
+  filter(location.region == "North America") 
+nrow(count_billionaires_1996)
+
+count_billionaires_2001 <- df_1 |>
+  filter(year == 2001) |>
+  filter(wealth.how.industry != 0) |>
+  filter(location.region == "North America") 
+nrow(count_billionaires_2001)
+
+count_billionaires_2014 <- df_1 |>
+  filter(year == 2014) |>
+  filter(wealth.how.industry != 0) |>
+  filter(location.region == "North America") 
+nrow(count_billionaires_2014)
+
+
+
+```
+
+```{r}
 #| label: mean_wealth_1996
 
 #Create data frame for mean wealth in 1996
@@ -63,13 +88,6 @@ df_1996 <- df_1 |>
   mutate(year = if_else(mean_wealth != 0, 1996, 0))
   
 
-```
-
-```{r}
-df_1996 <- df_1 |>
-  filter(year == 1996) |>
-  filter(wealth.how.industry != 0) |>
-  filter(location.region == "North America") |>
 ```
 
 ```{r}
@@ -132,102 +150,6 @@ df_rbind |>
 ```
 
 ```{r}
-#| label: load-data-2001
-#| fig-width: 20
-#| message: false
-billionaires <- read_csv("data/billionaires.csv")
-
-df_2 <- billionaires|>
-  filter(year == 2001)|>
-  dplyr::select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
-  rename_with(~'wealth.worth.billions', "wealth.worth in billions")|>
-  mutate(continent = case_when(
-    location.region %in% c("East Asia", "South Asia") ~ "Asia",
-    location.region == "Middle East/North Africa" ~ "Africa",
-    location.region == "Sub-Saharan Africa" ~ "Africa",
-    location.region == "Latin America" & location.citizenship == "Mexico" ~ "North America",
-    TRUE ~ location.region
-  ))
-```
-
-```{r}
-#| label: load-data-1996
-#| fig-width: 20
-#| message: false
-billionaires <- read_csv("data/billionaires.csv")
-
-df_3 <- billionaires|>
-  filter(year == 1996)|>
-  dplyr::select(name, "wealth.worth in billions", wealth.how.industry, location.region, location.citizenship)|>
-  rename_with(~'wealth.worth.billions', "wealth.worth in billions")|>
-  mutate(continent = case_when(
-    location.region %in% c("East Asia", "South Asia") ~ "Asia",
-    location.region == "Middle East/North Africa" ~ "Africa",
-    location.region == "Sub-Saharan Africa" ~ "Africa",
-    location.region == "Latin America" & location.citizenship == "Mexico" ~ "North America",
-    TRUE ~ location.region
-  ))
-```
-
-```{r}
-#|: label: Logistic_regression
-df_1$wealth.how.industry <- as.factor(df_1$wealth.how.industry)
-#My friend's model:
-model_2a <- logistic_reg() |>
-  set_engine("glm") |>
-  fit(wealth.how.industry ~ wealth.how.industry * wealth.worth.billions,
-      data = df_1,
-      family = "binomial") |>
-  tidy()
-model_2a
-
-#My model:
-model_2b <- logistic_reg() |>
-  set_engine("glm") |>
-  fit(wealth.how.industry ~ wealth.how.industry + wealth.worth.billions,
-      data = df_1,
-      family = "binomial") |>
-  tidy()
-model_2b
-
-AIC_1 <- logistic_reg() |>
-  set_engine("glm") |>
-  fit(wealth.how.industry ~ wealth.how.industry * wealth.worth.billions,
-        data = df_1,
-        family = "binomial")|>
-  glance() |>
-  pull(AIC)
-AIC_1
-  #My model
-AIC_2 <- logistic_reg() |>
-  set_engine("glm") |>
-  fit(wealth.how.industry ~ wealth.how.industry + wealth.worth.billions,
-        data = df_1,
-        family = "binomial") |>
-  glance() |>
-  pull(AIC)
-AIC_2
-```
-
-H0:
-
-Ha:
-
-```{r}
-
-df_2014<- df_2014|>
-  group_by(wealth.how.industry) |>
-  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
-
-df_2001<- df_2001|>
-  group_by(wealth.how.industry) |>
-  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
-
-
-
-```
-
-```{r}
 df_technology_2014 <- df_1|>
   filter(wealth.how.industry == "Technology-Computer")|>
   dplyr::select(wealth.worth.billions, wealth.how.industry)
@@ -240,6 +162,7 @@ df_technology_2001<- df_2|>
 ```
 
 ```{r}
+#| eval: False
 df_1|>
   filter(!is.na(wealth.worth.billions), year == 2014)|>
   count(wealth.how.industry)
