@@ -150,15 +150,40 @@ df_rbind |>
 ```
 
 ```{r}
-df_technology_2014 <- df_1|>
-  filter(wealth.how.industry == "Technology-Computer")|>
+df_2014 <- df_1|>
+  filter(year == "2014")|>
   dplyr::select(wealth.worth.billions, wealth.how.industry)
 
 
-df_technology_2001<- df_2|>
-  filter(wealth.how.industry == "Technology-Computer")|>
+df_2001<- df_1|>
+  filter(year  == "2001")|>
   dplyr::select(wealth.worth.billions, wealth.how.industry)
 
+df_1996<- df_1|>
+  filter(year  == "1996")|>
+  dplyr::select(wealth.worth.billions, wealth.how.industry)
+
+```
+
+H0= 2014-2001\>0
+
+Ha= 2014-2001\<0
+
+```{r}
+df_2014mean<- df_2014|>
+  group_by(wealth.how.industry) |>
+  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
+
+df_2001mean<- df_2001|>
+  group_by(wealth.how.industry) |>
+  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
+
+
+df2001mean_wealth_combined <- mean(df_2001mean$mean_wealth, na.rm = TRUE)
+
+df2014mean_wealth_combined <- mean(df_2014mean$mean_wealth, na.rm = TRUE)
+
+estimate <-3.429636 - 2.568625
 ```
 
 ```{r}
@@ -174,15 +199,51 @@ df_1|>
 sd1 <- df_2014|>
   summarize(sd_a = sd(wealth.worth.billions, na.rm = T)) |>
   as.numeric()
-n1 <-131
+n1 <-1653
 
 sd2 <- df_2001|>
   summarize(sd_a = sd(wealth.worth.billions, na.rm = T)) |>
   as.numeric()
-n2 <-55
+n2 <-538
 
 tscore <- (estimate - 0) / sqrt(((sd1^2)/n1) + ((sd2^2)/n2))
-pt(tscore, df= 184.5772 , lower.tail = F)
+pt(tscore, df= 1171.399 , lower.tail = F)
+```
+
+```{r}
+df_1996mean<- df_1996|>
+  group_by(wealth.how.industry) |>
+  summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
+
+df1996mean_wealth_combined <- mean(df_1996mean$mean_wealth, na.rm = TRUE)
+
+estimate1<- 2.568625 - 2.335113
+```
+
+```{r}
+#| eval: False
+df_1|>
+  filter(!is.na(wealth.worth.billions), year == 2001)|>
+  count(wealth.how.industry)
+
+df_1|>
+  filter(!is.na(wealth.worth.billions), year == 1996)|>
+  count(wealth.how.industry)
+
+sd3 <- df_2001|>
+  summarize(sd_a = sd(wealth.worth.billions, na.rm = T)) |>
+  as.numeric()
+n3 <-538
+
+sd4 <- df_1996|>
+  summarize(sd_a = sd(wealth.worth.billions, na.rm = T)) |>
+  as.numeric()
+n4 <-423
+
+tscore <- (estimate1 - 0) / sqrt(((sd3^2)/n3) + ((sd4^2)/n4))
+pt(tscore, df= 793.3797 , lower.tail = F)
+
+
 ```
 
 #### Results
