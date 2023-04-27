@@ -8,5 +8,5 @@ This project was developed by **\[We R Group 5\]** For [STA 199: Introduction to
 
 -   Yeeke Wang: Second-year student at Duke University, studying neuroscience on the pre-med track.
 -   Lyla Miller: First-year student at Duke University majoring in Public Policy with a certificate in Markets and Management.
--   Joshua Lee: One sentence description of Team member 3 (e.g., year, major, etc.).
+-   Joshua Lee: First-year student at Duke University, studying English on the pre-med track.
 -   Martin Ma: First-year student at Duke University, although he has yet to declare a major, he is considering neuroscience or environmental science.
