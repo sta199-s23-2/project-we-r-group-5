@@ -4,10 +4,9 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[team name\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+This project was developed by **\[We R Group 5\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
 
--   Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).
--   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
--   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
--   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
--   ...
+-   Yeeke Wang: One sentence description of Team member 1 (e.g., year, major, etc.).
+-   Lyla Miller: One sentence description of Team member 2 (e.g., year, major, etc.).
+-   Joshua Lee: One sentence description of Team member 3 (e.g., year, major, etc.).
+-   Martin Ma: First-year student at Duke University, although he has yet to declare a major, he is considering neuroscience or environmental science.
