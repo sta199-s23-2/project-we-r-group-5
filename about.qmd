@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[We R Group 5\]** For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.
+**This project was developed by \[We R Group 5\] For [STA 199: Introduction to Data Science](https://sta199-s23-2.github.io/) at Duke University. The team is comprised of the following team members.**
 
 -   Yeeke Wang: Second-year student at Duke University, studying neuroscience on the pre-med track.
 -   Lyla Miller: First-year student at Duke University majoring in Public Policy with a certificate in Markets and Management.
