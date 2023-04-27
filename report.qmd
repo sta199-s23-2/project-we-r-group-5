@@ -1,6 +1,6 @@
 ---
-title: "Wanna be rich? Here's how!"
-subtitle: "A statistical analysis regarding which industry has the highest number of billionaires based on their continent"
+title: "Wanna be successful? Here's how!"
+subtitle: "A statistical analysis regarding the success of different industries based on the billionaires within each of them"
 format: html
 editor: visual
 execute:
