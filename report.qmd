@@ -263,6 +263,14 @@ pt(tscore, df= 793.3797 , lower.tail = F)
 
 -   From the table depicting the number of billionaires per continent in 2014, we found that overall, North America had the most billionaires (as our hypothesis stated), followed by Europe and then Asia. This does not line up with the prediction, as we had predicted Asia to come first. For industry, we found that technology-computer was in fact the industry with the most billionaires in North America. However, it was found that each continent had a very different turn out regarding which industry was the most successful. For Europe and Latin America, the industry with the most billionaires was the consumer industry; for Africa, the diversified financial industry; and for Asia, the real estate industry.
 
+**Limitations and future research:**
+
+1.  Inflation: We did not consider the effects of inflation. Our model were based on the exact wealth worth in billion dollars in those years. We also anticipated that inflation can have a significant impact on wealth worth since 1996. We\'d recommend future research does take in effect of inflation into account.
+
+2.  Heritage: Some billionaires in our data set were inherited from their parents. Therefore their data may not accurately reflect their industry type.
+
+3.  Data from 1996, 2001, and 2014 are not enough for a comprehensive analysis. In order to form a more precise and accurate model, we\'d recommend to include more data from not just 3 years but every consecutive year from the beginning to the end so that a better trend can be presented.
+
 **Citation and Reference**
 
 \[1\] "Billionaires CSV File" from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created on 5/17/2016.
