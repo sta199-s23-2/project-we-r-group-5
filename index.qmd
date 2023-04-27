@@ -1,8 +1,8 @@
 ---
-title: "TEAM NAME"
+title: "We R Group 5"
 subtitle: "STA 199 Project"
 format: html
 editor: visual
 ---
 
-Add project abstract here.
+This research project
