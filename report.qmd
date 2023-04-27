@@ -122,7 +122,7 @@ df_2014 <- df_1 |>
 ```
 
 ```{r}
-#| label: visualization
+#| label: visualization-mean-wealth
 #| fig-width: 10
 #| fig-height: 8
 
@@ -180,7 +180,7 @@ The null hypothesis states that from 2001 to 2014, the average wealth worth has 
 The alternative hypothesis states that from 2001 to 2014, the average wealth worth has increased.
 
 ```{r}
-#| label: hypothesis-test
+#| label: preparation-for-hypothesis-test
 df_2014mean<- df_2014|>
   group_by(wealth.how.industry) |>
   summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
@@ -198,7 +198,7 @@ estimate <-3.429636 - 2.568625
 ```
 
 ```{r}
-#| eval: False
+#| label: hypothesis-test
 df_1|>
   filter(!is.na(wealth.worth.billions), year == 2014)|>
   count(wealth.how.industry)
@@ -221,7 +221,12 @@ tscore <- (estimate - 0) / sqrt(((sd1^2)/n1) + ((sd2^2)/n2))
 pt(tscore, df= 1171.399 , lower.tail = F)
 ```
 
+$H_{0}= 2001-1996 \le 0$
+
+$H_{a}= 2001 - 1996 > 0$
+
 ```{r}
+#| label: preparing-for-hypothesis-test-2
 df_1996mean<- df_1996|>
   group_by(wealth.how.industry) |>
   summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
@@ -232,7 +237,7 @@ estimate1<- 2.568625 - 2.335113
 ```
 
 ```{r}
-#| eval: False
+#| label: hypothesis-test-2 
 df_1|>
   filter(!is.na(wealth.worth.billions), year == 2001)|>
   count(wealth.how.industry)
