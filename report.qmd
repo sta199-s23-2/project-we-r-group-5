@@ -25,7 +25,7 @@ This article presents findings using billionaires from all over the world, where
 
 #### Methodology
 
-Our methodology involves creating a table that counts the number of billionaires per continent in 2014. This gives us an overview of the numbers alone, industry aside. Next, in order to also compare industry and wealth worth, we thought it would be best to create a bar plot for each continent. Thus we used facet wrap to create multiple side-by-side plots that depict the relationship between industry and wealth worth.
+Our methodology involves multiple components. First, we found the number of billionaires per industry for each of the three years (1996, 2001, and 2014). Using this information, we can compare them and see how the number of billionaires has changed over time. Of course, this does not tell us anything about quantity of wealth, so in addition to the number of billionaires alone, we thought it would be beneficial to find the average wealth worth of the billionaires in each industry. We did this for all three years, and created a visualization to show how mean wealth worth has changed. From this, we can see the growth of certain industries as well as the diminish of others. Lastly, we conducted a hypothesis test for the general mean wealth worth, first for 2001 and 2014, and then for 1996 and 2001. These hypothesis tests tell us whether there was a true, significant change in mean wealth worth between those years. This is general, but could be done for the specific industries as well.
 
 ```{r}
 #| label: load-pkgs
@@ -50,8 +50,6 @@ df_1 <- billionaires|>
     location.region == "Latin America" & location.citizenship == "Mexico" ~ "North America",
     TRUE ~ location.region
   ))
-
-df_1
 ```
 
 ```{r}
@@ -157,6 +155,7 @@ df_rbind |>
 ```
 
 ```{r}
+#| label: data-frames-for-hypothesis-testing
 df_2014 <- df_1|>
   filter(year == "2014")|>
   dplyr::select(wealth.worth.billions, wealth.how.industry)
@@ -181,6 +180,7 @@ The null hypothesis states that from 2001 to 2014, the average wealth worth has 
 The alternative hypothesis states that from 2001 to 2014, the average wealth worth has increased.
 
 ```{r}
+#| label: hypothesis-test
 df_2014mean<- df_2014|>
   group_by(wealth.how.industry) |>
   summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
