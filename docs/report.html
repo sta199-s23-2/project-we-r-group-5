@@ -136,29 +136,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="methodology" class="level4">
 <h4 class="anchored" data-anchor-id="methodology">Methodology</h4>
-<p>Our methodology involves creating a table that counts the number of billionaires per continent in 2014. This gives us an overview of the numbers alone, industry aside. Next, in order to also compare industry and wealth worth, we thought it would be best to create a bar plot for each continent. Thus we used facet wrap to create multiple side-by-side plots that depict the relationship between industry and wealth worth.</p>
+<p>Our methodology involves multiple components. First, we found the number of billionaires per industry for each of the three years (1996, 2001, and 2014). Using this information, we can compare them and see how the number of billionaires has changed over time. Of course, this does not tell us anything about quantity of wealth, so in addition to the number of billionaires alone, we thought it would be beneficial to find the average wealth worth of the billionaires in each industry. We did this for all three years, and created a visualization to show how mean wealth worth has changed. From this, we can see the growth of certain industries as well as the diminish of others. Lastly, we conducted a hypothesis test for the general mean wealth worth, first for 2001 and 2014, and then for 1996 and 2001. These hypothesis tests tell us whether there was a true, significant change in mean wealth worth between those years. This is general, but could be done for the specific industries as well.</p>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2,614 × 7
-    year name                    wealth.worth.…¹ wealt…² locat…³ locat…⁴ conti…⁵
-   &lt;dbl&gt; &lt;chr&gt;                             &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
- 1  1996 Bill Gates                         18.5 Techno… North … United… North …
- 2  2001 Bill Gates                         58.7 Techno… North … United… North …
- 3  2014 Bill Gates                         76   Techno… North … United… North …
- 4  1996 Warren Buffett                     15   Consum… North … United… North …
- 5  2001 Warren Buffett                     32.3 Consum… North … United… North …
- 6  2014 Carlos Slim Helu                   72   Media   Latin … Mexico  North …
- 7  1996 Oeri Hoffman and Sacher            13.1 Techno… Europe  Switze… Europe 
- 8  2001 Paul Allen                         30.4 Techno… North … United… North …
- 9  2014 Amancio Ortega                     64   Retail… Europe  Spain   Europe 
-10  1996 Lee Shau Kee                       12.7 Real E… East A… Hong K… East A…
-# … with 2,604 more rows, and abbreviated variable names
-#   ¹​wealth.worth.billions, ²​wealth.how.industry, ³​location.region,
-#   ⁴​location.citizenship, ⁵​continent</code></pre>
-</div>
+
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -270,6 +253,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p>To answer our research question, we created a plot to visualize the relationship between industry and wealth worth, with industry being on the x-axis and wealth worth in billions on the y-axis. Additionally, in order to compare these variables by continent, we used facet wrap to make multiple plots next to each other. This visualization made it easy for us to draw conclusions to our question.</p></li>
 <li><p>From the table depicting the number of billionaires per continent in 2014, we found that overall, North America had the most billionaires (as our hypothesis stated), followed by Europe and then Asia. This does not line up with the prediction, as we had predicted Asia to come first. For industry, we found that technology-computer was in fact the industry with the most billionaires in North America. However, it was found that each continent had a very different turn out regarding which industry was the most successful. For Europe and Latin America, the industry with the most billionaires was the consumer industry; for Africa, the diversified financial industry; and for Asia, the real estate industry.</p></li>
 </ul>
+<p><strong>Limitations and future research:</strong></p>
+<ol type="1">
+<li><p>Inflation: We did not consider the effects of inflation. Our model were based on the exact wealth worth in billion dollars in those years. We also anticipated that inflation can have a significant impact on wealth worth since 1996. We'd recommend future research does take in effect of inflation into account.</p></li>
+<li><p>Heritage: Some billionaires in our data set were inherited from their parents. Therefore their data may not accurately reflect their industry type.</p></li>
+<li><p>Data from 1996, 2001, and 2014 are not enough for a comprehensive analysis. In order to form a more precise and accurate model, we'd recommend to include more data from not just 3 years but every consecutive year from the beginning to the end so that a better trend can be presented.</p></li>
+</ol>
 <p><strong>Citation and Reference</strong></p>
 <p>[1] “Billionaires CSV File” from the CORGIS Dataset Project. By Ryan Whitcomb, Version 2.0.0, created on 5/17/2016.</p>
 <p>[2] Businesstech. (2022, April 18). The job sectors where most billionaires make their money. Retrieved March 9, 2023, from<a href="https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/" class="uri">https://businesstech.co.za/news/business/576098/the-job-sectors-where-most-billionaires-make-their-money/</a></p>
