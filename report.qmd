@@ -15,7 +15,7 @@ Research Question and Hypothesis:
 
 -   How has the relationship between wealth worth and industry among billionaires changed in North America as time goes on?
 
-Based on our prior background knowledge, we predict that the number of billionaires involved in the industry of technology-computer will increase as time goes by because technology is an industry that is growing rapidly. We believe that the consumer industry may increase as well, and that the some of the more popular industries in 1996 might decrease in the number of billionaires as time passes. More broadly speaking, we hypothesize that the overall number of billionaires will increase, and therefore each industry will have a higher number of billionaires as time progresses, simply because there is more money in the world. We also predict that the average wealth worth will increase among all billionaires across industries as time goes.
+Based on our prior background knowledge, we predict that the number of billionaires involved in the industry of technology-computer will increase as time goes by because technology is an industry that is growing rapidly. We believe that the consumer industry may increase as well, and that the some of the more popular industries in 1996 might decrease in the number of billionaires as time passes. More broadly speaking, we hypothesize that the overall number of billionaires will increase, and therefore each industry will have a higher number of billionaires as time progresses, simply because there is more money in the world. We also predict that the average wealth worth will increase among all billionaires across all industries as time goes.
 
 The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. \[1\] We are using data from all three years to see how the wealth industries have changed over time by comparing data about the wealth industries from each provided year. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the year, wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations. We are focusing our studies on the continent North America, to explore the relationship between billionaires and wealth worth in this area in particular over time.
 
@@ -259,17 +259,21 @@ pt(tscore, df= 793.3797 , lower.tail = F)
 
 #### Results
 
--   To answer our research question, we created a plot to visualize the relationship between industry and wealth worth, with industry being on the x-axis and wealth worth in billions on the y-axis. Additionally, in order to compare these variables by continent, we used facet wrap to make multiple plots next to each other. This visualization made it easy for us to draw conclusions to our question.
+From our visualizations and tests in the methodology section, we can draw conclusions that help answer our research question of how the relationship between wealth worth and industry among billionaires has changed in North America as time goes on.
 
--   From the table depicting the number of billionaires per continent in 2014, we found that overall, North America had the most billionaires (as our hypothesis stated), followed by Europe and then Asia. This does not line up with the prediction, as we had predicted Asia to come first. For industry, we found that technology-computer was in fact the industry with the most billionaires in North America. However, it was found that each continent had a very different turn out regarding which industry was the most successful. For Europe and Latin America, the industry with the most billionaires was the consumer industry; for Africa, the diversified financial industry; and for Asia, the real estate industry.
+We found that over the years, there has been a noticeable rise in the number of billionaires across most industries, along with a significant increase in their average wealth worth in billions. Among all industries, the technology computer industry has consistently shown the highest mean wealth worth over the three years. However, the greatest increase in mean wealth worth was observed in the diversified financial industry. It is also worth noting that the services industry was removed from the dataset in 2001, and this shows a decline in its overall success and profitability. On the other hand, the venture capital industry was added to the dataset in 2001, which shows its increase in overall success and profitability. Furthermore, the private equity/leveraged buyout industry experienced a dip in its graph (decrease in mean wealth worth), followed by an increase in later years.
+
+#### Discussion
+
+**Summary:**
 
 **Limitations and future research:**
 
-1.  Inflation: We did not consider the effects of inflation. Our model were based on the exact wealth worth in billion dollars in those years. We also anticipated that inflation can have a significant impact on wealth worth since 1996. We\'d recommend future research does take in effect of inflation into account.
+1.  Inflation: We did not consider the effects of inflation. Our model were based on the exact wealth worth in billion dollars in those years. We also anticipated that inflation can have a significant impact on wealth worth since 1996. We'd recommend future research does take in effect of inflation into account.
 
 2.  Heritage: Some billionaires in our data set were inherited from their parents. Therefore their data may not accurately reflect their industry type.
 
-3.  Data from 1996, 2001, and 2014 are not enough for a comprehensive analysis. In order to form a more precise and accurate model, we\'d recommend to include more data from not just 3 years but every consecutive year from the beginning to the end so that a better trend can be presented.
+3.  Data from 1996, 2001, and 2014 are not enough for a comprehensive analysis. In order to form a more precise and accurate model, we'd recommend to include more data from not just 3 years but every consecutive year from the beginning to the end so that a better trend can be presented.
 
 **Citation and Reference**
 
