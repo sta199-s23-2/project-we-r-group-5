@@ -17,6 +17,8 @@ Research Question and Hypothesis:
 
 Based on our prior background knowledge, we predict that the number of billionaires involved in the industry of technology-computer will increase as time goes by because technology is an industry that is growing rapidly. We believe that the consumer industry may increase as well, and that the some of the more popular industries in 1996 might decrease in the number of billionaires as time passes. More broadly speaking, we hypothesize that the overall number of billionaires will increase, and therefore each industry will have a higher number of billionaires as time progresses, simply because there is more money in the world. We also predict that the average wealth worth will increase among all billionaires across all industries as time goes.
 
+(In this dataset, wealth worth refers to the net worth of an individual in billions of US dollars. It is measured by taking into account the individual's assets, including real estate, investments, and other sources of income, and subtracting any liabilities, such as debts or mortgages. The resulting net worth is then converted into billions of US dollars for ease of comparison across the dataset.)
+
 The data was from the CORGIS Dataset Project, collected by Ryan Whitcombwas in 1996, 2001, and 2014. \[1\] We are using data from all three years to see how the wealth industries have changed over time by comparing data about the wealth industries from each provided year. It compiled Forbes World's Billionaires list and shows a record number of billionaires in the world while adding detailed information on the individuals listed. The relevant variables include the year, wealth worth, industry, and their continent. In total, the data set has 22 columns and 2614 observations. We are focusing our studies on the continent North America, to explore the relationship between billionaires and wealth worth in this area in particular over time.
 
 To help us answer our research question, we looked at the Businesstech article, "The job sectors where billionaires make their money" presents findings from a study by UBS and PwC on the sectors where most billionaires succeeded. \[2\] The study analyzed the wealth of 2,000 billionaires worldwide and found that the top sectors where billionaires made their wealth are finance and investments, technology, manufacturing, real estate, and fashion and retail. Finance and investments had the most billionaires with 267, followed by technology with 221, manufacturing with 215, real estate with 163, and fashion and retail with 135. The study underscores the diversity of the sectors in which billionaires can generate wealth.
@@ -60,7 +62,7 @@ df_1996 <- df_1 |>
   group_by(wealth.how.industry) |>
   summarize(num_billionaires = n()) |>
   arrange(desc(num_billionaires))
-df_1996
+df_1996 
 
 df_2001 <- df_1  |>
   filter(year == 2001, wealth.how.industry != 0) |>
@@ -156,6 +158,8 @@ df_rbind |>
 
 ```{r}
 #| label: data-frames-for-hypothesis-testing
+#| echo: false
+#| warning: false
 df_2014 <- df_1|>
   filter(year == "2014")|>
   dplyr::select(wealth.worth.billions, wealth.how.industry)
@@ -183,6 +187,8 @@ The alternative hypothesis states that from 2001 to 2014, the average wealth wor
 
 ```{r}
 #| label: preparation-for-hypothesis-test
+#| echo: false
+#| warning: false
 df_2014mean<- df_2014|>
   group_by(wealth.how.industry) |>
   summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
@@ -201,6 +207,8 @@ estimate <-3.429636 - 2.568625
 
 ```{r}
 #| label: hypothesis-test
+#| echo: false
+#| warning: false
 df_1|>
   filter(!is.na(wealth.worth.billions), year == 2014)|>
   count(wealth.how.industry)
@@ -235,6 +243,8 @@ The alternative hypothesis states that from 1996 to 2001, the average wealth wor
 
 ```{r}
 #| label: preparing-for-hypothesis-test-2
+#| echo: false
+#| warning: false
 df_1996mean<- df_1996|>
   group_by(wealth.how.industry) |>
   summarize(mean_wealth = mean(wealth.worth.billions, na.rm = T))
@@ -246,6 +256,8 @@ estimate1<- 2.568625 - 2.335113
 
 ```{r}
 #| label: hypothesis-test-2 
+#| echo: false
+#| warning: false
 df_1|>
   filter(!is.na(wealth.worth.billions), year == 2001)|>
   count(wealth.how.industry)
